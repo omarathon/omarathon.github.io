@@ -9108,6 +9108,16 @@ section.projects-block {
     position: relative;
 }
 
+.social-icon-linkedin {
+  height: 60px;
+  width: 60px;
+  display: block;
+  float: left;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 80%;
+  position: relative;
+}
+
 .image1 {
   position: relative;
   top: 0;
