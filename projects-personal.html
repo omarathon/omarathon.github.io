@@ -63,7 +63,7 @@
           <div class="col-md-6 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
             <p class="mb-3 breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Projects</span> <span>Personal</span></p>
             <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Personal Projects</h1>
-            <body>Projects that I work on in my free time.</body><br><br>
+            <body>Projects that I've worked on in my free time.</body><br><br>
             <div class="col-md">
               <div class="row justify-content-center">
                 <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
@@ -86,11 +86,44 @@
           <section class="projects-block">
 
           <!-- MASONRY -->
-          <div class="masonry ftco-animate">
+          <div class="masonry ftco-animate justify-content-center">
+            <div class="masonry-brick=large">
+              <!-- ModulePal -->
+              <div class="card mb-4 featured-img" style="max-width:40em">
+                <a href="https:modulepal.com" target="_blank"><img class="card-img-top" src="img/modulepal.JPG" alt="Card image cap"></a>
+                  <div class="card-body">
+                      <h3 class="card-title text-center"><strong>ModulePal</strong></h3>
+                        <p class="card-text">
+                          <div class="text-center">Web app enabling Warwick students to review academic modules, helping them make better decisions.<hr></div>
+                          <li>Verifies a Warwick student's enrolment status via OAuth, and only allows them to make reviews if they took a module to ensure legitimacy.</li>
+                          <li>Harnesses Warwick student data via OAuth, personalising the app to their university account.</li>
+                          <li>Anonymously contextualises reviews based on the grade students achieved in the module.</li>
+                          <li>Used semi-offically in Warwick's Computer Science department, with >1500 reviews from ~100 users.</li>
+                          <li>Secure Spring (Java) backend, using an in-memory ORM (SQL/Hibernate) database for caching, and a NoSQL Firebase Realtime Database for persistant data storage. Provides a REST API for the frontend.</li>
+                          <li>React (TypeScript) frontend utilising hooks and other advanced features, harnessing Firebase Authentication to manage authentication states.</li>
+                          <li>Backend packaged as a WAR application and hosted on a Tomcat instance on a DigitalOcean Droplet, frontend hosted via Firebase Hosting.</li>
+                          <li>Highlly optimised with an efficient NoSQL data schema, scalable metric computations via moving averages, and paginated queries.</li>
+                        </p>
+
+                        <div class="mt-auto">
+                          <hr>
+                          <div class="col text-center button-wrapper">
+                            <a href="https://modulepal.com" target="_blank"><button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="View Website">View Website</button></a>
+                            <a href="https://youtu.be/zOoJNQIcz-0" target="_blank"><button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Watch Demo">Watch Demo</button></a>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <div class="subheading text-right">TypeScript <img src="img/typescripticon.svg" height="21"></img>&nbsp; Java <img src="img/javaicon.svg" height="21">&nbsp; React <img src="img/reacticon.svg" height="21">&nbsp; Spring <img src="img/springicon.svg" height="21"></div>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="masonry-brick">
               <!-- oauth1-hmac -->
-              <div class="card mb-4 featured-img" style="min-width:29em; max-width:29em">
-                  <img class="card-img-top" src="img/oauth1hmac.png" alt="Card image cap">
+              <div class="card mb-4 featured-img" style="max-width:29em">
+                  <a href="https://github.com/omarathon/oauth1-hmac" target="_blank"><img class="card-img-top" src="img/oauth1hmac.png" alt="Card image cap"></a>
                   <div class="card-body">
                       <h3 class="card-title text-center"><strong>OAuth1-HMAC</strong></h3>
                         <p class="card-text">
@@ -100,6 +133,7 @@
                           <li>Fully documented with a JavaDoc.</li>
                           <li>Listed as an official OAuth1.0 library on oauth.net/1.</li>
                           <li>Provided an example implementation via Spring for Warwick University's OAuth1.0 provider, which is officially listed on their website.</li>
+                          <li>Used in my ModulePal app for the Warwick OAuth1.0 flow.</li>
                         </p>
 
                         <div class="mt-auto">
@@ -114,7 +148,7 @@
                       </div>
                     </div>
                     <div class="card-footer">
-                      <div class="subheading text-right">Java <img src="img/javaicon.svg" height="24"></img></div>
+                      <div class="subheading text-right">Java <img src="img/javaicon.svg" height="21"></img></div>
                     </div>
                 </div>
             </div>
@@ -123,7 +157,7 @@
 
               <div class="masonry-brick">
                 <!-- PCS -->
-                <div class="card mb-4 featured-img" style="min-width:29em; max-width:29em">
+                <div class="card mb-4 featured-img" style="max-width:29em">
                     <img class="card-img-top" src="img/pcsimage.png" alt="Card image cap">
                     <div class="card-body">
                         <h3 class="card-title text-center"><strong>Product Compliance System</strong></h3>
@@ -136,9 +170,9 @@
                           </p>
 
                           <div class="mt-auto">
-                            <div class="alert alert-warning" role="alert">
+                            <!-- <div class="alert alert-warning" role="alert">
                               Since the main VB.NET application was commisioned software, its code may not be shared.
-                            </div>
+                            </div> -->
                             <hr>
                           
                             <div class="col text-center">
@@ -147,14 +181,14 @@
                         </div>
                       </div>
                       <div class="card-footer">
-                        <div class="subheading text-right">VB.NET <img src="img/vsicon.svg" height="24"></img> &nbsp; SQL <img src="img/sqlicon.svg" height="24"></img> &nbsp; Java <img src="img/javaicon.svg" height="24"></img></div>
+                        <div class="subheading text-right">VB.NET <img src="img/vsicon.svg" height="21"></img> &nbsp; SQL <img src="img/sqlicon.svg" height="21"></img> &nbsp; Java <img src="img/javaicon.svg" height="21"></img></div>
                       </div>
                   </div>
               </div>
 
               <div class="masonry-brick">
                   <!-- Riot API Crawler -->
-                  <div class="card mb-4" style="min-width:29em; max-width:29em">
+                  <div class="card mb-4" style="max-width:29em">
                       <a href="https://www.dcs.warwick.ac.uk/~u1830744/projects/crawler-visualisation/index.html" target="_blank"><img class="card-img-top" src="img/riotapicrawlerimage.gif" alt="Card image cap"></a>
                       <div class="card-body">
                           <h3 class="card-title text-center"><strong>Riot API Crawler</strong></h3>
@@ -178,14 +212,14 @@
                           </div>
                         </div>
                         <div class="card-footer">
-                            <div class="subheading text-right">Java <img src="img/javaicon.svg" height="24"></img> &nbsp; JavaScript <img src="img/jsicon.svg" height="24"></div>
+                            <div class="subheading text-right">Java <img src="img/javaicon.svg" height="21"></img> &nbsp; JavaScript <img src="img/jsicon.svg" height="21"></div>
                         </div>
                     </div>
                 </div>
 
                 <div class="masonry-brick">
                   <!-- RedditCraft -->
-              <div class="card mb-4" style="min-width:29em; max-width:29em">
+              <div class="card mb-4" style="max-width:29em">
                   <a href="https://www.spigotmc.org/resources/redditcraft-a-forum-alternative.71607/" target="_blank"><img class="card-img-top" src="img/redditcraft.png" alt="Card image cap"></a>
                   <div class="card-body">
                       <h3 class="card-title text-center"><strong>RedditCraft</strong></h3>
@@ -210,14 +244,14 @@
                       </div>
                     </div>
                     <div class="card-footer">
-                        <div class="subheading text-right">Java <img src="img/javaicon.svg" height="24"></img> &nbsp; SQL <img src="img/sqlicon.svg" height="24"></img> </div>
+                        <div class="subheading text-right">Java <img src="img/javaicon.svg" height="21"></img> &nbsp; SQL <img src="img/sqlicon.svg" height="21"></img> </div>
                     </div>
                 </div>
                 </div>
 
                 <div class="masonry-brick">
                     <!-- Live Maze Game -->
-                <div class="card mb-4" style="min-width:29em; max-width:29em">
+                <div class="card mb-4" style="max-width:29em">
                     <a href="https://www.dcs.warwick.ac.uk/~u1830744/projects/live-maze-game/index.html" target="_blank"><img class="card-img-top" src="img/livemazegameimage.png" alt="Card image cap"></a>
                     <div class="card-body">
                         <h3 class="card-title text-center"><strong>Live Maze Game</strong></h3>
@@ -239,14 +273,14 @@
                         </div>
                       </div>
                       <div class="card-footer">
-                          <div class="subheading text-right">JavaScript <img src="img/jsicon.svg" height="24"></div>
+                          <div class="subheading text-right">JavaScript <img src="img/jsicon.svg" height="21"></div>
                       </div>
                   </div>
                   </div>
 
                   <div class="masonry-brick">
                       <!-- Dijkstra Program -->
-                      <div class="card mb-4" style="min-width:29em; max-width:29em">
+                      <div class="card mb-4" style="max-width:29em">
                           <a href="https://www.dropbox.com/s/vxumf9bld9ly75h/DijkstraProgram.exe?dl=0" target="_blank"><img class="card-img-top" src="img/dijkstraimage.png" alt="Card image cap"></a>
                           <div class="card-body">
                               <h3 class="card-title text-center"><strong>Dijkstra Application</strong></h3>
@@ -269,7 +303,7 @@
                               </div>
                             </div>
                             <div class="card-footer">
-                                <div class="subheading text-right">C#.NET <img src="img/vsicon.svg" height="24"></img></div>
+                                <div class="subheading text-right">C#.NET <img src="img/vsicon.svg" height="21"></img></div>
                             </div>
                         </div>
                   </div>

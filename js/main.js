@@ -401,7 +401,7 @@ const scrollDownElement = document.getElementById("scroll-down");
 
 if (!!scrollDownElement) {
 	scrollDownElement.addEventListener("click", () => {
-		EPPZScrollTo.scrollVerticalToElementById('scroll-target', 20);
+		EPPZScrollTo.scrollVerticalToElementById('scroll-target', 73);
 		console.log("scrolling");
 	});
 }
