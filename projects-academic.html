@@ -63,7 +63,7 @@
           <div class="col-md-6 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
             <p class="mb-3 breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Projects</span> <span>Academic</span></p>
             <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Academic Projects</h1>
-            <body>My coursework projects throughout university.</body><br /><br />
+            <body>My coursework projects throughout university.<br /><i>If you would like to see the code and reports for these projects, then please make a request via email.</i></body><br /><br />
             <div class="col-md">
               <div class="row justify-content-center">
                 <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
@@ -132,19 +132,41 @@
                     </div>
                 </div>
           </div>
+          <div class="masonry-brick">
+            <!-- ACA -->
+            <div class="card mb-4" style="min-width:29em; max-width:29em">
+                <img class="card-img-top" src="img/acacourseworkimage.JPG" alt="Card image cap">
+                <div class="card-body">
+                    <h3 class="card-title text-center"><strong>Physics Simulation Optimisation</strong> <span class="text-primary">(Year 2)</span></h3>
+      
+                      <p class="card-text">
+                          <div class="text-center">Coursework for the Advanced Computer Architecture module, involving the optimisation of a two-dimensional computational fluid dynamics simulator. <hr></div>
+                          <li>Implemented low-level optimisation techniques on the C code, making it run in 1/10th of the original time (~80s to ~7s).</li>
+                          <li>Utilised parallelisation by applying multi-threading using OpenMP, and vectorisation using SSE Intrinsics. Made the code parralilsable by removing inter-loop dependencies.</li>
+                          <li>Applied general optimisation techniques such as loop unrolling, loop fusion & fission, precomputing static conditionals, and removing unexecuted code.</li>
+                          <li>Utilised timers to assess the impact of my optimisations for each significant portion of the program.</li>
+                      </p>
+                  </div>
+                  <div class="card-footer">
+                      <div class="subheading text-right">C <img src="img/cicon.svg" height="24"></i></div>
+                  </div>
+              </div>
+        </div>
         <div class="masonry-brick">
-          <!-- Witter -->
+          <!-- FL -->
           <div class="card mb-4" style="min-width:29em; max-width:29em">
-              <img class="card-img-top" src="img/witterimage.png" alt="Card image cap">
+              <!-- <img class="card-img-top" src="img/witterimage.png" alt="Card image cap"> -->
               <div class="card-body">
-                  <h3 class="card-title text-center"><strong>Witter</strong> <span class="text-primary">(Year 1)</span></h3>
+                  <h3 class="card-title text-center"><strong>PLM Parser and Evaluator</strong> <span class="text-primary">(Year 2)</span></h3>
     
                     <p class="card-text">
-                        <div class="text-center">Java programming coursework, for the Design of Information Structures module. Involved writing the backend data store for a "Witter" application (akin to Twitter).<hr></div>
-                        <li>Raw implementation of hash tables, search trees and other data structures.</li>
-                        <li>Complexity optimisation and balancing between time and space complexities, for scalability.</li>
+                        <div class="text-center">Coursework for the Formal Languages module, involving the implementation of a parser and evaluator for a made-up programming language (PLM - Programming Language of the Moment).<hr></div>
+                        <li>Distilled the rules of the language into a Formal Grammar (the language allowed functions, parameters, variables, basic mathematical operators and positive integers).</li>
+                        <li>Implemented a parser for input programs in the language using JavaCC.</li>
+                        <li>Implemented an evaluator for input programs in the language using Java, which first parses the input program then computes the returned result.</li>
+                        <li>Obtained full marks for my implementation.</li>
                     </p>
-
+    
                     <!-- <div class="mt-auto">
                       <div class="alert alert-info" role="info">
                         Since this code is part of an academic project, it is not available publically. <br>Please request access to the private repository via email.
@@ -156,17 +178,44 @@
                 </div>
             </div>
       </div>
+
+          <div class="masonry-brick">
+            <!-- OS&CN -->
+            <div class="card mb-4" style="min-width:29em; max-width:29em">
+                <!-- <img class="card-img-top" src="img/swecourseworkimage.JPG" alt="Card image cap"> -->
+                <div class="card-body">
+                    <h3 class="card-title text-center"><strong>Packet Sniffer</strong> <span class="text-primary">(Year 2)</span></h3>
+      
+                      <p class="card-text">
+                          <div class="text-center">Coursework for the Operating Systems and Computer Networks module, involving the implementation of packet sniffer to detect SYN Flood, ARP Poisoning and URL Blacklist attacks.<hr></div>
+                          <li>Low-level C implementation of IP and TCP packet header parsing.</li>
+                          <li>Multi-threaded implementation to handle high load of incoming packets.</li>
+                          <li>Utilised a work queue and mutex locks for the multi-threading to handle high loads and prevent race conditions.</li>
+                      </p>
+
+                      <!-- <div class="mt-auto">
+                        <div class="alert alert-info" role="info">
+                          Since this code is part of an academic project, it is not available publically. <br>Please request access to the private repository via email.
+                        </div>
+                      </div> -->
+                  </div>
+                  <div class="card-footer">
+                      <div class="subheading text-right">C <img src="img/cicon.svg" height="24"></i></div>
+                  </div>
+              </div>
+        </div>
+        
       <div class="masonry-brick">
-        <!-- Witter -->
+        <!-- LAV -->
         <div class="card mb-4" style="min-width:29em; max-width:29em">
-            <img class="card-img-top" src="img/witterimage.png" alt="Card image cap">
+            <!-- <img class="card-img-top" src="img/witterimage.png" alt="Card image cap"> -->
             <div class="card-body">
-                <h3 class="card-title text-center"><strong>Witter</strong> <span class="text-primary">(Year 1)</span></h3>
+                <h3 class="card-title text-center"><strong>Propositional Logic Prover</strong> <span class="text-primary">(Year 2)</span></h3>
   
                   <p class="card-text">
-                      <div class="text-center">Java programming coursework, for the Design of Information Structures module. Involved writing the backend data store for a "Witter" application (akin to Twitter).<hr></div>
-                      <li>Raw implementation of hash tables, search trees and other data structures.</li>
-                      <li>Complexity optimisation and balancing between time and space complexities, for scalability.</li>
+                      <div class="text-center">Coursework for the Logic and Verification module, involving the implementation of a logical evaluator to determine whether an input logical theorem is a tautology.<hr></div>
+                      <li>Implemented the Resolution algorithm for propositional logic formulas to determine if a given formula is a tautology in a divide-and-conquer fashion.</li>
+                      <li>Used Prolog for the implementation, making it entirely functional.</li>
                   </p>
 
                   <!-- <div class="mt-auto">
@@ -176,34 +225,10 @@
                   </div> -->
               </div>
               <div class="card-footer">
-                  <div class="subheading text-right">Java <img src="img/javaicon.svg" height="24"></i></div>
+                  <div class="subheading text-right">Prolog <img src="img/prologicon.svg" height="24"></i></div>
               </div>
           </div>
     </div>
-    <div class="masonry-brick">
-      <!-- Witter -->
-      <div class="card mb-4" style="min-width:29em; max-width:29em">
-          <img class="card-img-top" src="img/witterimage.png" alt="Card image cap">
-          <div class="card-body">
-              <h3 class="card-title text-center"><strong>Witter</strong> <span class="text-primary">(Year 1)</span></h3>
-
-                <p class="card-text">
-                    <div class="text-center">Java programming coursework, for the Design of Information Structures module. Involved writing the backend data store for a "Witter" application (akin to Twitter).<hr></div>
-                    <li>Raw implementation of hash tables, search trees and other data structures.</li>
-                    <li>Complexity optimisation and balancing between time and space complexities, for scalability.</li>
-                </p>
-
-                <!-- <div class="mt-auto">
-                  <div class="alert alert-info" role="info">
-                    Since this code is part of an academic project, it is not available publically. <br>Please request access to the private repository via email.
-                  </div>
-                </div> -->
-            </div>
-            <div class="card-footer">
-                <div class="subheading text-right">Java <img src="img/javaicon.svg" height="24"></i></div>
-            </div>
-        </div>
-  </div>
 
                   <div class="masonry-brick">
                       <!-- Witter -->
