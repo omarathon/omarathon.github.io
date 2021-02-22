@@ -9134,3 +9134,7 @@ section.projects-block {
   top: 5px;
   right: 30px;
 }
+
+.no-margin {
+  margin: 0px 0px 0px 0px !important;
+}
