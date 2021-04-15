@@ -9138,3 +9138,10 @@ section.projects-block {
 .no-margin {
   margin: 0px 0px 0px 0px !important;
 }
+
+.border-white {
+  border-top-width: 10px !important;
+  border-left-width: 10px !important;
+  border-right-width: 10px !important;
+  border-style: solid !important;
+}
