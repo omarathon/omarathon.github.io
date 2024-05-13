@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Omar Tanner - Academic Projects</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- <link href="https://fonts.googleapis.com/css?family=Inconsolata:100,200,300,400,700,800" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Source Code Pro:100,200,300,400,700,800" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Omar Tanner</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="oi oi-menu"></span> Menu
+        </button>
+  
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+            <!-- <li class="nav-item"><a href="about.html" class="nav-link">About Me</a></li> -->
+            <li class="nav-item dropdown active">
+              <a class="nav-link dropdown-toggle" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown04">
+                  <a class="dropdown-item" href="projects-personal.html">Personal</a>
+                  <a class="dropdown-item active" href="projects-academic-cam.html">Academic @ Cambridge</a>
+                  <a class="dropdown-item" href="projects-academic-ww.html">Academic @ Warwick</a>
+                </div>
+            </li>
+            <!-- <li class="nav-item"><a href="index.html" class="nav-link">CV&nbsp;</a></li> -->
+            <li class="nav-item cta"><a href="contact.html" class="nav-link"><span>Get in touch</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- END NAV -->
+    
+    <div class="hero-wrap js-fullheight">
+      <div class="overlay"></div>
+      <div id="particles-js"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-6 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+            <p class="mb-3 breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Projects</span> <span>Academic</span></p>
+            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Academic Projects<br>@ Cambridge</h1>
+            <div class="row justify-content-center">
+              <body>Thesis and coursework projects during my graduate studies at the University of Cambridge.
+            </div>
+            <div class="row justify-content-center mt-2">
+              If the code/report is not provided and you would like access, please contact me.</body><br /><br />
+            </div>
+            <div class="col-md">
+              <div class="row justify-content-center">
+                <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
+                  <li class="ftco-animate social-icon no-margin" id="scroll-down"><a href="javascript:void(0);"><span class="icon-arrow-circle-down"></span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <section class="ftco-section" id="scroll-target">
+      <div class="projects-container">
+        <div class="projects-cards">
+
+          <section class="projects-block">
+
+          <!-- MASONRY -->
+          <div class="masonry ftco-animate justify-content-center">
+            <div class="masonry-brick-large">
+              <!-- MRes Project -->
+              <div class="card mb-4 featured-img" style="max-width:45em">
+                <img class="card-img-top border-white" src="img/mresproject2.png" alt="Card image cap"><br>
+                <img class="card-img-top border-white" src="img/mresproject4.png" alt="Card image cap" style="width: 90%; margin-left: auto; margin-right: auto; display: block">
+                  <div class="card-body">
+                      <h3 class="card-title text-center"><strong>Fast Geospatial Data Processing<br>using Data Compression</strong></h3>
+                        <p class="card-text">
+                          <div class="text-center">MRes thesis on beating main-memory bandwidths for geospatial computation via cache-optimised in-memory data compression. Implemented in C++ with AVX512.<hr></div>
+                          <li>Deployed state-of-the-art SIMD-optimised data compression algorithms to reduce the memory footprint and improve cache efficiency during geospatial data processing.</li>
+                          <li>Leveraged the AVX512 instruction set in C++ to parallelise compression algorithms, improving performance by maintaining compressed data closer to the CPU.</li>
+                          <li>Achieved significant processing speedups, up to 78%, by fusing decompression and aggregation stages, streamlining the handling of large geospatial datasets.</li>
+                          <li>Utilised SLURM for managing HPC resources, enabling efficient scaling and execution of 8000 hours of benchmarks and optimisations.</li>
+                          <li>Applied multi-objective Pareto optimisation to identify and implement the most effective compression codecs, striking a balance between computational speed and memory efficiency.</li>
+                        </p>
+
+                        <div class="mt-auto">
+                          <hr>
+                          <div class="col text-center button-wrapper">
+                            <a href="https://github.com/omarathon/compression-geospatial" target="_blank"><button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View GitHub Repository">View Code</button></a>
+                            <a href="https://github.com/omarathon/mres/blob/main/mres_project.pdf" target="_blank"><button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View Report PDF">Read Report</button></a>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <div class="subheading text-right">C++ <img src="img/cppicon.png" height="21"></img>&nbsp; Python <img src="img/pythonicon.svg" height="21">&nbsp; SLURM <img src="img/slurmicon.svg" height="21">&nbsp; GDAL <img src="img/gdalicon.png" height="21"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="masonry-brick">
+              <!-- EmbSys -->
+              <div class="card mb-4" style="max-width:29em">
+                  <img class="card-img-top" src="img/embsyspproject.png" alt="Card image cap">
+                  <div class="card-body">
+                      <h3 class="card-title text-center"><strong>Embedded Real-Time Activity Recognition</strong></span></h3>
+        
+                        <p class="card-text">
+                            <div class="text-center">Embedded Systems for the Internet of Things coursework. Implemented an algorithm in C on a lightweight micro-controller and IMU to quantify the probability of walking activities.<hr></div>
+                            <li>Developed in C on a FRDM KL03 micro-controller with an MMA8451Q accelerometer, optimising for space by stripping excess boot code and implementing real-time parameter updates.</li>
+                            <li>My algorithm successfully differentiated between walking, jogging, and running based on stride duration probabilities, though it needs tuning to better distinguish jogging and running.</li>
+                            <li>Utilised Gaussian distributions for stride timing with dynamic variance updates via Welford's algorithm and efficient CDF calculations using the Abramowitz and Stegun approximation.</li>
+                        </p>
+
+                        <div class="mt-auto">
+                          <hr>
+                          <div class="col text-center button-wrapper">
+                            <a href="https://github.com/omarathon/Warp-firmware/blob/cw4-code-impl/src/boot/ksdk1.1.0/devMMA8451Q.c" target="_blank"><button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View GitHub Repository">View Code</button></a>
+                            <a href="https://github.com/omarathon/mres/blob/main/emb_sys_project.pdf" target="_blank"><button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View Report PDF">Read Report</button></a>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="subheading text-right">C <img src="img/cicon.svg" height="21"></i></div>
+                    </div>
+                </div>
+          </div>
+
+          <div class="masonry-brick">
+            <!-- Sensor Design -->
+            <div class="card mb-4" style="max-width:29em">
+                <img class="card-img-top" src="img/sensordesignproject.png" alt="Card image cap">
+                <div class="card-body">
+                    <h3 class="card-title text-center"><strong>Temperature and Pulse Sensors</strong></span></h3>
+      
+                      <p class="card-text">
+                          <div class="text-center">Sensor Design Project. Implemented and calibrated a temperature and pulse sensor. Raw electronics implemented on an Arduino, real-time signal processing in C, data analysis in Python.<hr></div>
+                          <li>Employed Arduino for real-time processing in C and data analysis in Python, using thermistors and photoplethysmography (PPG) for enhanced sensor functionality.</li>
+                          <li>Achieved a 43.2% increase in temperature measurement accuracy through calibration of thermistors.</li>
+                          <li>Implemented a custom real-time heart rate detection algorithm using peak-finding techniques to provide immediate user feedback.</li>
+                      </p>
+    
+                      <div class="mt-auto">
+                        <hr>
+                        <div class="col text-center button-wrapper">
+                          <a href="https://github.com/omarathon/mres/blob/main/sensor_design_project.pdf" target="_blank"><button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View Report PDF">Read Report</button></a>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                      <div class="subheading text-right">C <img src="img/cicon.svg" height="21"></i>&nbsp; Arduino <img src="img/arduino.png" height="21"></i>&nbsp; Python <img src="img/pythonicon.svg" height="21"></i></div>
+                  </div>
+              </div>
+        </div>
+
+          <div class="masonry-brick">
+            <!-- MLPhysical -->
+            <div class="card mb-4" style="max-width:29em">
+                <img class="card-img-top" src="img/mlphysicalproject.png" alt="Card image cap">
+                <div class="card-body">
+                    <h3 class="card-title text-center"><strong>Bayesian Optimisation for PPO</strong></span></h3>
+      
+                      <p class="card-text">
+                          <div class="text-center">Machine Learning and the Physical World coursework. Led a group project using Python to automatically tune PPO's hyperparameters using Bayesian Optimisation.<hr></div>
+                          <li>Automatically tuned the hyperparameters for Proximal Policy Optimization (PPO) for the Cartpole problem using Bayesian Optimisation, demonstrating more efficient convergence over random search.</li>
+                          <li>Developed in Python using Gymnasium for simulation, Stable Baselines3 for PPO, and GPyOpt for Bayesian Optimisation, focusing on critical hyperparameters like the learning rate and entropy coefficient.</li>
+                          <li>Employed Gaussian Process surrogates with Matern52 and periodic kernels, achieving optimal performance through the Expected Improvement acquisition function.</li>
+                          <li>Varied neural network architectures to measure the importance of PPO's actor and critic.</li>
+                      </p>
+
+                      <div class="mt-auto">
+                        <hr>
+                        <div class="col text-center button-wrapper">
+                          <a href="https://github.com/omarathon/mres/blob/main/ml_physical_group_project.pdf" target="_blank"><button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View Report PDF">Read Report</button></a>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                      <div class="subheading text-right">Python <img src="img/pythonicon.svg" height="21"></i></div>
+                  </div>
+              </div>
+        </div>
+
+        <div class="masonry-brick">
+          <!-- Prob ML -->
+          <div class="card mb-4" style="max-width:29em">
+              <img class="card-img-top" src="img/probmlproject.png" alt="Card image cap">
+              <div class="card-body">
+                  <h3 class="card-title text-center"><strong>Probabilistic Ranking & Latent Dirichlet Allocation Model</strong></span></h3>
+    
+                    <p class="card-text">
+                        <div class="text-center">Probabilistic Machine Learning courseworks. One on TrueSkill / probabilistic ranking, the other on topic modelling / the LDA model.<hr></div>
+                        <li>Understood and implemented advanced statistical algorithms in MATLAB.</li>
+                        <li>Evaluated convergence of the collapsed Gibbs sampler and LDA models.</li>
+                        <li>Achieved a grade A- for both courseworks.</li>
+                    </p>
+
+                    <div class="mt-auto">
+                      <hr>
+                      <div class="col text-center button-wrapper">
+                        <a href="https://github.com/omarathon/mres/blob/main/prob_ml_projects.pdf" target="_blank"><button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View Report PDF">Read Report</button></a>
+                      </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                    <div class="subheading text-right">MATLAB <img src="img/matlabicon.png" height="21"></i></div>
+                </div>
+            </div>
+      </div>
+
+            </div>
+        </section>
+
+        <footer class="text-center">
+            <a class="arrow bounce text-center" href="#education" style="font-size: 2.5rem">
+              <i class="arrow bounce fas fa-chevron-down"></i>
+            </a>
+        </footer>
+      </div>
+    </section>
+    
+
+
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#000000"/></svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/particles.min.js"></script>
+  <script src="js/particle.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="js/main.js"></script>
+    
+  </body>
+</html>
