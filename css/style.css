@@ -8278,7 +8278,14 @@ textarea.form-control {
 .user-img {
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center; }
+  background-position: center center;
+  -webkit-user-drag: none; /* Disable drag in Webkit browsers */
+  -khtml-user-drag: none; /* Disable drag in Konqueror browsers */
+  -moz-user-drag: none; /* Disable drag in Firefox */
+  -o-user-drag: none; /* Disable drag in older Opera versions */
+  user-drag: none; /* Modern browsers */
+  user-select: none; /* Prevent selecting the image */
+}
 
 .testimony-section {
   position: relative; }

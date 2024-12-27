@@ -405,3 +405,13 @@ if (!!scrollDownElement) {
 		console.log("scrolling");
 	});
 }
+
+document.addEventListener('contextmenu', function (event) {
+	event.preventDefault(); // Prevent right-click context menu
+  });
+
+document.querySelectorAll('img').forEach(img => {
+img.addEventListener('mousedown', event => {
+	event.preventDefault(); // Prevent default left-click behavior
+});
+});
