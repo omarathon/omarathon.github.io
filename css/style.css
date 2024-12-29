@@ -9152,3 +9152,8 @@ section.projects-block {
   border-right-width: 25px !important;
   border-style: solid !important;
 }
+
+.noscroll {
+  overflow: hidden;
+  height: 100%;
+}
