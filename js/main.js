@@ -45,9 +45,9 @@
 
 	var fullHeight = function() {
 
-		$('.js-fullheight').css('height', $(window).height());
+		$('.js-fullheight').css('min-height', $(window).height());
 		$(window).resize(function(){
-			$('.js-fullheight').css('height', $(window).height());
+			$('.js-fullheight').css('min-height', $(window).height());
 		});
 
 	};
@@ -64,7 +64,7 @@
 	loader();
 
 	// Scrollax
-   $.Scrollax();
+//    $.Scrollax();
 
 	var carousel = function() {
 		$('.carousel-testimony').owlCarousel({
@@ -415,3 +415,20 @@ img.addEventListener('mousedown', event => {
 	event.preventDefault(); // Prevent default left-click behavior
 });
 });
+
+function checkScreenSize() {
+	const mainContent = document.getElementById('main-content');
+	const zoomMessage = document.getElementById('zoom-message');
+	if (window.innerHeight < 860 || window.innerWidth < 485 ) {
+	// Hide main content and show zoom message
+	mainContent.style.display = 'none';
+	zoomMessage.style.display = 'flex';
+	} else {
+	// Show main content and hide zoom message
+	mainContent.style.display = 'block';
+	zoomMessage.style.display = 'none';
+	}
+}
+
+window.addEventListener('load', checkScreenSize);
+window.addEventListener('resize', checkScreenSize);

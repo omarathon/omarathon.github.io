@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
+    <div id="main-content">
     
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">
@@ -43,6 +44,7 @@
             <li class="nav-item dropdown active">
               <a class="nav-link dropdown-toggle" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
+                  <a class="dropdown-item" href="projects-featured.html">Featured</a>
                   <a class="dropdown-item active" href="projects-personal.html">Personal</a>
                   <a class="dropdown-item" href="projects-academic-cam.html">Academic @ Cambridge</a>
                   <a class="dropdown-item" href="projects-academic-ww.html">Academic @ Warwick</a>
@@ -64,7 +66,12 @@
           <div class="col-md-6 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
             <p class="mb-3 breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Projects</span> <span>Personal</span></p>
             <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Personal Projects</h1>
-            <body><strong>projects that I have worked on in my free time</strong></body><br><br>
+            <div class="row justify-content-center">
+            <body>projects that I have worked on in my free time
+              </div>
+            <div class="row justify-content-center mt-2">
+              [in chronological order]
+            </div></body><br>
             <div class="col-md">
               <div class="row justify-content-center">
                 <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
@@ -88,14 +95,43 @@
 
           <!-- MASONRY -->
           <div class="masonry ftco-animate justify-content-center">
+            <div class="masonry-brick-medium">
+              <!-- oauth1-hmac -->
+              <div class="card mb-4 featured-img" style="max-width:38em">
+                  <a href="https://github.com/omarathon/arb-sim" target="_blank"><img class="card-img-top" src="img/arb-sim2.gif" alt="Card image cap"></a>
+                  <div class="card-body">
+                      <h3 class="card-title text-center"><strong>Arbitrage Simulation</strong></h3>
+                        <p class="card-text">
+                          <div class="text-center">Event-driven full-stack simulation of an arbitrage bot for betting.<hr></div>
+                          <li>Simulates odds changes and bet execution delays to explore slippage.</li>
+                          <li>Distributed Python/FastAPI backend using Redis for inter-service communication.</li>
+                           <li>Real-time TypeScript/React frontend streaming from a webhook.</li>
+                           <li>Dockerised backend.</li>
+                           <li>Extensively tested with 43 high-signal unit tests (28 backend, 15 frontend).</li>
+                        </p>
+
+                        <div class="mt-auto">
+                          <hr>
+                          <div class="col text-center button-wrapper">
+                            <a href="https://github.com/omarathon/arb-sim" target="_blank"><button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View Library Code">View Code</button></a>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <div class="subheading text-right">Python <img src="img/pythonicon.svg" height="21"></img>&nbsp; TypeScript <img src="img/typescripticon.svg" height="21"></img>&nbsp; Redis <img src="img/redisicon.svg" height="21"></img>&nbsp; React <img src="img/reacticon.svg" height="21"></img>&nbsp; Docker <img src="img/dockericon.svg" height="21"></div>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="masonry-brick-large">
               <!-- ModulePal -->
               <div class="card mb-4 featured-img" style="max-width:45em">
-                <a href="https://modulepal.com" target="_blank"><img class="card-img-top border-white" src="img/modulepal-logo.png" alt="Card image cap"></a>
+                <a href="https://github.com/ModulePal/modulepal" target="_blank"><img class="card-img-top border-white" src="img/modulepal-logo.png" alt="Card image cap"></a>
                   <div class="card-body">
                       <h3 class="card-title text-center"><strong>ModulePal</strong></h3>
                         <p class="card-text">
-                          <div class="text-center">Web platform enabling Warwick students to review academic modules, helping them make better decisions. It ensures legitimacy by only allowing a user to review a module they have taken, and harnesses student data to provide confidential grade-based analytics.<hr></div>
+                          <div class="text-center">Web app enabling Warwick students to review academic modules, helping them make better decisions. It ensures legitimacy by only allowing a user to review a module they have taken (integrating with university systems), and harnesses student data to provide confidential grade-based analytics.<hr></div>
                           <li>Was used semi-offically in Warwick's Computer Science department, with over 5000 reviews.</li>
                           <!-- <li>Enables users to review modules across a set of metrics, and leave likeable comments and suggestions.</li> -->
                           <li>Harnesses Warwick student data via OAuth, personalising the experience to a user's university account.</li>
@@ -115,7 +151,7 @@
                           <hr>
                           <div class="col text-center button-wrapper">
                             <a href="https://github.com/ModulePal/modulepal" target="_blank"><button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View ModulePal Code">View Code</button></a>
-                            <a href="https://modulepal.com" target="_blank"><button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="View Website">View Website</button></a>
+                            <a href="https://youtu.be/zOoJNQIcz-0" target="_blank"><button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="View Demo">View Demo</button></a>
                           </div>
                       </div>
                     </div>
@@ -132,7 +168,7 @@
                   <div class="card-body">
                       <h3 class="card-title text-center"><strong>OAuth1-HMAC</strong></h3>
                         <p class="card-text">
-                          <div class="text-center">Lightweight library implementing the OAuth1.0 protocol as a consumer, using the HMAC signing strategy.<hr></div>
+                          <div class="text-center">Lightweight library implementing the OAuth1.0 protocol as a consumer.<hr></div>
                           <li>Implements the OAuth1.0 flow for a generic consumer via Google's OAuth Client Library for Java.</li>
                           <!-- <li>Fully documented with a JavaDoc.</li> -->
                           <!-- <li>Easy-to-use external interface for generic OAuth1.0 consumers.</li> -->
@@ -193,12 +229,12 @@
                 <div class="masonry-brick">
                   <!-- Riot API Crawler -->
                   <div class="card mb-4" style="max-width:29em">
-                      <a href="https://www.dcs.warwick.ac.uk/~u1830744/projects/crawler-visualisation/index.html" target="_blank"><img class="card-img-top" src="img/riotapicrawlerimage.gif" alt="Card image cap"></a>
+                      <a href="https://github.com/omarathon/riot-api-crawler" target="_blank"><img class="card-img-top" src="img/crawler.png" alt="Card image cap"></a>
                       <div class="card-body">
                           <h3 class="card-title text-center"><strong>Riot API Crawler</strong></h3>
             
                             <p class="card-text">
-                                <div class="text-center">Customisable and extensible League of Legends match crawler, useful for gathering large datasets of League of Legends matches in an intelligent and efficient manner.</div><hr>
+                                <div class="text-center">Flexible League of Legends match crawler, useful for gathering large datasets of League of Legends matches in an intelligent and efficient manner.</div><hr>
                                 <!-- <li>Detailed documentation.</li> -->
                                 <li>Functionality to upload obtained data to a Firebase database, and to compute skill-rating (elo) metrics of players and matches.</li>
                                 <!-- <li>Example realtime visualisation of a live dataset obtained via the tool, which streams from a Firebase.</li><br> -->
@@ -210,7 +246,6 @@
                                   <div class='col-xs-10 button-wrapper'>
                                       <a href="https://github.com/omarathon/riot-api-crawler" target="_blank"><button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View Crawler Code">View Crawler Code</button></a>
                                       <a href="https://github.com/omarathon/crawler-visualisation" target="_blank"><button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View Visualisation Code">View Visualisation Code</button></a>
-                                      <a href="https://www.dcs.warwick.ac.uk/~u1830744/projects/crawler-visualisation/index.html" target="_blank"><button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="See Live Visualisation">Live Visualisation</button></a>
                                   </div>
                               </div>
                           </div>
@@ -289,12 +324,15 @@
         </footer>
       </div>
     </section>
-  
-    
+
+  </div>
   
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#000000"/></svg></div>
 
+  <div id="zoom-message" style="display:none; text-align:center; padding: 2rem; font-size: 1.5rem; color: #fff; background-color: #000; height: 100vh; display: flex; align-items: center; justify-content: center;">
+    Please zoom out or use a larger screen to view this site.
+  </div>
 
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>

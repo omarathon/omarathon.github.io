@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Omar Tanner - Academic Projects</title>
+    <title>Omar Tanner - Featured Projects</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -44,9 +44,9 @@
             <li class="nav-item dropdown active">
               <a class="nav-link dropdown-toggle" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="projects-featured.html">Featured</a>
+                  <a class="dropdown-item active" href="projects-featured.html">Featured</a>
                   <a class="dropdown-item" href="projects-personal.html">Personal</a>
-                  <a class="dropdown-item active" href="projects-academic-cam.html">Academic @ Cambridge</a>
+                  <a class="dropdown-item" href="projects-academic-cam.html">Academic @ Cambridge</a>
                   <a class="dropdown-item" href="projects-academic-ww.html">Academic @ Warwick</a>
                 </div>
             </li>
@@ -64,13 +64,14 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-6 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-            <p class="mb-3 breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Projects</span> <span>Academic</span></p>
-            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Academic Projects<br>@ Cambridge</h1>
+            <p class="mb-3 breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Projects</span> <span>Personal</span></p>
+            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Featured Projects</h1>
             <div class="row justify-content-center">
-              thesis and coursework projects during my graduate studies at Cambridge<br>
+              <body>recent-ish, significant projects
             </div>
             <div class="row justify-content-center mt-2">
-              <strong><strong>[contact me for code or reports where not provided]</strong></strong><br /><br />
+              <strong><strong>[contact me for code or reports where not provided]</strong></strong>
+              </body><br /><br />
             </div>
             <div class="col-md">
               <div class="row justify-content-center">
@@ -80,9 +81,12 @@
               </div>
             </div>
           </div>
+          
         </div>
+        
       </div>
     </div>
+    
     
     <section class="ftco-section" id="scroll-target">
       <div class="projects-container">
@@ -122,117 +126,74 @@
                 </div>
             </div>
 
-            <div class="masonry-brick">
-              <!-- EmbSys -->
-              <div class="card mb-4" style="max-width:29em">
-                  <img class="card-img-top" src="img/embsyspproject.png" alt="Card image cap">
+
+            <div class="masonry-brick-medium">
+              <!-- arb-sim -->
+              <div class="card mb-4 featured-img" style="max-width:38em">
+                  <a href="https://github.com/omarathon/arb-sim" target="_blank"><img class="card-img-top" src="img/arb-sim2.gif" alt="Card image cap"></a>
                   <div class="card-body">
-                      <h3 class="card-title text-center"><strong>Embedded Real-Time Activity Recognition</strong></span></h3>
-        
+                      <h3 class="card-title text-center"><strong>Arbitrage Simulation</strong></h3>
                         <p class="card-text">
-                            <div class="text-center">Embedded Systems coursework. Implemented an algorithm in C on a lightweight micro-controller and IMU to quantify the probability of walking activities.<hr></div>
-                            <li>Developed in C on a FRDM KL03 micro-controller with an MMA8451Q accelerometer.</li>
-                            <li>Optimised for space by stripping excess boot code and implementing real-time parameter updates.</li>
-                            <li>Utilised Gaussian distributions for stride timing with dynamic variance updates via Welford's algorithm and efficient CDF calculations using the Abramowitz and Stegun approximation.</li>
-                            <li>My algorithm successfully differentiated between walking, jogging, and running based on stride duration probabilities.</li>
+                          <div class="text-center">Event-driven full-stack simulation of an arbitrage bot for betting.<hr></div>
+                          <li>Simulates odds changes and bet execution delays to explore slippage.</li>
+                          <li>Distributed Python/FastAPI backend using Redis for inter-service communication.</li>
+                           <li>Real-time TypeScript/React frontend streaming from a webhook.</li>
+                           <li>Dockerised backend.</li>
+                           <li>Extensively tested with 43 high-signal unit tests (28 backend, 15 frontend).</li>
                         </p>
 
                         <div class="mt-auto">
                           <hr>
                           <div class="col text-center button-wrapper">
-                            <a href="https://github.com/omarathon/Warp-firmware/blob/cw4-code-impl/src/boot/ksdk1.1.0/devMMA8451Q.c" target="_blank"><button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View GitHub Repository">View Code</button></a>
-                            <a href="https://github.com/omarathon/mres/blob/main/emb_sys_project.pdf" target="_blank"><button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View Report PDF">Read Report</button></a>
+                            <a href="https://github.com/omarathon/arb-sim" target="_blank"><button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View Library Code">View Code</button></a>
                           </div>
                       </div>
                     </div>
                     <div class="card-footer">
-                        <div class="subheading text-right">C <img src="img/cicon.svg" height="21"></i></div>
+                      <div class="subheading text-right">Python <img src="img/pythonicon.svg" height="21"></img>&nbsp; TypeScript <img src="img/typescripticon.svg" height="21"></img>&nbsp; Redis <img src="img/redisicon.svg" height="21"></img>&nbsp; React <img src="img/reacticon.svg" height="21"></img>&nbsp; Docker <img src="img/dockericon.svg" height="21"></div>
                     </div>
-                </div>
-          </div>
-
-          <div class="masonry-brick">
-            <!-- Sensor Design -->
-            <div class="card mb-4" style="max-width:29em">
-                <img class="card-img-top" src="img/sensordesignproject.png" alt="Card image cap">
-                <div class="card-body">
-                    <h3 class="card-title text-center"><strong>Temperature and Pulse Sensors</strong></span></h3>
-      
-                      <p class="card-text">
-                          <div class="text-center">Sensor Design Project. Implemented and calibrated a temperature and pulse sensor. Raw electronics implemented on an Arduino, real-time signal processing in C, data analysis in Python.<hr></div>
-                          <!-- <li>Employed Arduino for real-time processing in C and data analysis in Python, using thermistors and photoplethysmography (PPG) for enhanced sensor functionality.</li> -->
-                          <li>Achieved a 43.2% increase in temperature measurement accuracy through calibration of thermistors.</li>
-                          <li>Implemented a real-time heart-rate detection algorithm using peak-finding techniques to provide immediate user feedback.</li>
-                      </p>
-    
-                      <div class="mt-auto">
-                        <hr>
-                        <div class="col text-center button-wrapper">
-                          <a href="https://github.com/omarathon/mres/blob/main/sensor_design_project.pdf" target="_blank"><button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View Report PDF">Read Report</button></a>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="card-footer">
-                      <div class="subheading text-right">C <img src="img/cicon.svg" height="21"></i>&nbsp; Arduino <img src="img/arduino.png" height="21"></i>&nbsp; Python <img src="img/pythonicon.svg" height="21"></i></div>
-                  </div>
-              </div>
-        </div>
-
-          <div class="masonry-brick">
-            <!-- MLPhysical -->
-            <div class="card mb-4" style="max-width:29em">
-                <img class="card-img-top" src="img/mlphysicalproject.png" alt="Card image cap">
-                <div class="card-body">
-                    <h3 class="card-title text-center"><strong>Bayesian Optimisation for PPO</strong></span></h3>
-      
-                      <p class="card-text">
-                          <div class="text-center">Machine Learning and the Physical World coursework. Led a group project using Python to automatically tune PPO's hyperparameters using Bayesian Optimisation.<hr></div>
-                          <li>Developed in Python using Gymnasium for simulation, Stable Baselines3 for PPO, and GPyOpt for Bayesian Optimisation.</li>
-                          <li>Automatically tuned the hyperparameters for Proximal Policy Optimization (PPO) for the Cartpole problem using Bayesian Optimisation, demonstrating more efficient convergence over random search.</li>
-                          <li>Employed Gaussian Process surrogates with Matern52 and periodic kernels.</li>
-                          <li>Varied neural network architectures to measure the importance of PPO's actor and critic.</li>
-                      </p>
-
-                      <div class="mt-auto">
-                        <hr>
-                        <div class="col text-center button-wrapper">
-                          <a href="https://github.com/omarathon/mres/blob/main/ml_physical_group_project.pdf" target="_blank"><button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View Report PDF">Read Report</button></a>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="card-footer">
-                      <div class="subheading text-right">Python <img src="img/pythonicon.svg" height="21"></i></div>
-                  </div>
-              </div>
-        </div>
-
-        <div class="masonry-brick">
-          <!-- Prob ML -->
-          <div class="card mb-4" style="max-width:29em">
-              <img class="card-img-top" src="img/probmlproject.png" alt="Card image cap">
-              <div class="card-body">
-                  <h3 class="card-title text-center"><strong>Probabilistic Ranking & Latent Dirichlet Allocation Model</strong></span></h3>
-    
-                    <p class="card-text">
-                        <div class="text-center">Probabilistic Machine Learning courseworks. One on TrueSkill / probabilistic ranking, the other on topic modelling / the LDA model.<hr></div>
-                        <!-- <li>Understood and implemented advanced statistical algorithms in MATLAB.</li> -->
-                        <li>Evaluated convergence of the collapsed Gibbs sampler and LDA models.</li>
-                        <li>Achieved a grade A- for both courseworks.</li>
-                    </p>
-
-                    <div class="mt-auto">
-                      <hr>
-                      <div class="col text-center button-wrapper">
-                        <a href="https://github.com/omarathon/mres/blob/main/prob_ml_projects.pdf" target="_blank"><button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="View Report PDF">Read Reports</button></a>
-                      </div>
-                  </div>
-                </div>
-                <div class="card-footer">
-                    <div class="subheading text-right">MATLAB <img src="img/matlabicon.png" height="21"></i></div>
                 </div>
             </div>
-      </div>
 
+
+            <div class="masonry-brick-large">
+              <!-- ModulePal -->
+              <div class="card mb-4 featured-img" style="max-width:45em">
+                <a href="https://github.com/ModulePal/modulepal" target="_blank"><img class="card-img-top border-white" src="img/modulepal-logo.png" alt="Card image cap"></a>
+                  <div class="card-body">
+                      <h3 class="card-title text-center"><strong>ModulePal</strong></h3>
+                        <p class="card-text">
+                          <div class="text-center">Web app enabling Warwick students to review academic modules, helping them make better decisions. It ensures legitimacy by only allowing a user to review a module they have taken (integrating with university systems), and harnesses student data to provide confidential grade-based analytics.<hr></div>
+                          <li>Was used semi-offically in Warwick's Computer Science department, with over 5000 reviews.</li>
+                          <!-- <li>Enables users to review modules across a set of metrics, and leave likeable comments and suggestions.</li> -->
+                          <li>Harnesses Warwick student data via OAuth, personalising the experience to a user's university account.</li>
+                          <!-- <li>Anonymously contextualises reviews based on the grade students achieved in the module.</li> -->
+                          <!-- <li>Responsive UI which works on all screen sizes.</li> -->
+
+                          <hr />
+                          <h5>Technical details:</h5>
+                          <li>Secure Spring (Java) backend, using an in-memory ORM (SQL/Hibernate) database for caching, and a NoSQL Firebase Realtime Database for persistant data storage.</li>
+                          <li>React (TypeScript) frontend utilising hooks and other advanced features, harnessing Firebase Authentication to manage authentication states.</li>
+                          <!-- <li>Backend packaged as a WAR application and hosted on a Tomcat instance on a DigitalOcean Droplet. Frontend hosted via Firebase Hosting.</li> -->
+                          <!-- <li>Mailchimp for email marketing, GCP Operations for session logging.</li> -->
+                          <li>Optimised with an efficient NoSQL data schema, in-memory SQL caching layer, scalable metric computations via moving averages, and paginated queries.</li>
+                        </p>
+
+                        <div class="mt-auto">
+                          <hr>
+                          <div class="col text-center button-wrapper">
+                            <a href="https://github.com/ModulePal/modulepal" target="_blank"><button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View ModulePal Code">View Code</button></a>
+                            <a href="https://youtu.be/zOoJNQIcz-0" target="_blank"><button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="View Demo">View Demo</button></a>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="card-footer">
+                      <div class="subheading text-right">TypeScript <img src="img/typescripticon.svg" height="21"></img>&nbsp; Java <img src="img/javaicon.svg" height="21">&nbsp; SQL <img src="img/sqlicon.svg" height="21">&nbsp; React <img src="img/reacticon.svg" height="21">&nbsp; Spring <img src="img/springicon.svg" height="21">&nbsp; Firebase <img src="img/firebaseicon.svg" height="21"></div>
+                    </div>
+                </div>
+            </div>
+
+           
             </div>
         </section>
 
@@ -243,12 +204,11 @@
         </footer>
       </div>
     </section>
+
   </div>
-
-
+  
     
   
-
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#000000"/></svg></div>
 
