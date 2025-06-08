@@ -31,7 +31,7 @@
     
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">
-        <a class="navbar-brand" href="index.html">Omar Tanner</a>
+        <a class="navbar-brand" href="index.html">Omar T.</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="oi oi-menu"></span> Menu
         </button>
@@ -64,7 +64,7 @@
           <div class="col-md-6 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
             <p class="mb-3 breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Projects</span> <span>Personal</span></p>
             <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Personal Projects</h1>
-            <body>Projects that I have worked on in my free time.</body><br><br>
+            <body><strong>projects that I have worked on in my free time</strong></body><br><br>
             <div class="col-md">
               <div class="row justify-content-center">
                 <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
@@ -96,19 +96,19 @@
                       <h3 class="card-title text-center"><strong>ModulePal</strong></h3>
                         <p class="card-text">
                           <div class="text-center">Web platform enabling Warwick students to review academic modules, helping them make better decisions. It ensures legitimacy by only allowing a user to review a module they have taken, and harnesses student data to provide confidential grade-based analytics.<hr></div>
-                          <li>Used semi-offically in Warwick's Computer Science department, with over 4000 reviews at present.</li>
-                          <li>Enables users to review modules across a set of metrics, and leave likeable comments and suggestions.</li>
+                          <li>Was used semi-offically in Warwick's Computer Science department, with over 5000 reviews.</li>
+                          <!-- <li>Enables users to review modules across a set of metrics, and leave likeable comments and suggestions.</li> -->
                           <li>Harnesses Warwick student data via OAuth, personalising the experience to a user's university account.</li>
-                          <li>Anonymously contextualises reviews based on the grade students achieved in the module.</li>
-                          <li>Responsive UI which works on all screen sizes.</li>
+                          <!-- <li>Anonymously contextualises reviews based on the grade students achieved in the module.</li> -->
+                          <!-- <li>Responsive UI which works on all screen sizes.</li> -->
 
                           <hr />
                           <h5>Technical details:</h5>
-                          <li>Secure Spring (Java) backend, using an in-memory ORM (SQL/Hibernate) database for caching, and a NoSQL Firebase Realtime Database for persistant data storage. Provides a REST API for the frontend.</li>
+                          <li>Secure Spring (Java) backend, using an in-memory ORM (SQL/Hibernate) database for caching, and a NoSQL Firebase Realtime Database for persistant data storage.</li>
                           <li>React (TypeScript) frontend utilising hooks and other advanced features, harnessing Firebase Authentication to manage authentication states.</li>
-                          <li>Backend packaged as a WAR application and hosted on a Tomcat instance on a DigitalOcean Droplet. Frontend hosted via Firebase Hosting.</li>
-                          <li>Mailchimp for email marketing, GCP Operations for session logging.</li>
-                          <li>Highly optimised with an efficient NoSQL data schema, in-memory SQL caching layer, scalable metric computations via moving averages, and paginated queries.</li>
+                          <!-- <li>Backend packaged as a WAR application and hosted on a Tomcat instance on a DigitalOcean Droplet. Frontend hosted via Firebase Hosting.</li> -->
+                          <!-- <li>Mailchimp for email marketing, GCP Operations for session logging.</li> -->
+                          <li>Optimised with an efficient NoSQL data schema, in-memory SQL caching layer, scalable metric computations via moving averages, and paginated queries.</li>
                         </p>
 
                         <div class="mt-auto">
@@ -134,11 +134,11 @@
                         <p class="card-text">
                           <div class="text-center">Lightweight library implementing the OAuth1.0 protocol as a consumer, using the HMAC signing strategy.<hr></div>
                           <li>Implements the OAuth1.0 flow for a generic consumer via Google's OAuth Client Library for Java.</li>
-                          <li>Fully documented with a JavaDoc.</li>
-                          <li>Easy-to-use external interface for generic OAuth1.0 consumers.</li>
+                          <!-- <li>Fully documented with a JavaDoc.</li> -->
+                          <!-- <li>Easy-to-use external interface for generic OAuth1.0 consumers.</li> -->
                           <li>Listed as an OAuth1.0 library on oauth.net/1.</li>
                           <li>Provided an example implementation via Spring for Warwick University's OAuth1.0 provider, which is listed on their website.</li>
-                          <li>Used in ModulePal for the Warwick OAuth1.0 flow.</li>
+                          <!-- <li>Used in ModulePal for the Warwick OAuth1.0 flow.</li> -->
                         </p>
 
                         <div class="mt-auto">
@@ -166,12 +166,12 @@
                   <h3 class="card-title text-center"><strong>RedditCraft</strong></h3>
     
                     <p class="card-text">
-                        <div class="text-center">Minecraft Server plugin which provides a subreddit-based forum with Minecraft server integrations, with over 500 downloads.<hr></div>
-                        <li>Solves the problem in Minecraft server development whereby there is no free forums software that allows full customisability without restrictions.</li>
+                        <div class="text-center">Minecraft Server plugin which provides a subreddit-based forum with Minecraft server integrations, with over 1.5k downloads.<hr></div>
+                        <!-- <li>Solves the problem in Minecraft server development whereby there is no free forums software that allows full customisability without restrictions.</li> -->
                         <li>Syncs a Minecraft player's server data to a subreddit.</li>
                         <li>Implementation of a secure authentication system, realtime data management and abstraction for multiple database technologies.</li>
-                        <li>Built for efficiency due to the application domain.</li>
-                        <li>Used for my own Minecraft server.</li>
+                        <!-- <li>Built for efficiency due to the application domain.</li> -->
+                        <!-- <li>Used for my own Minecraft server.</li> -->
                     </p>
 
                     <div class="mt-auto">
@@ -199,9 +199,9 @@
             
                             <p class="card-text">
                                 <div class="text-center">Customisable and extensible League of Legends match crawler, useful for gathering large datasets of League of Legends matches in an intelligent and efficient manner.</div><hr>
-                                <li>Detailed documentation.</li>
+                                <!-- <li>Detailed documentation.</li> -->
                                 <li>Functionality to upload obtained data to a Firebase database, and to compute skill-rating (elo) metrics of players and matches.</li>
-                                <li>Example realtime visualisation of a live dataset obtained via the tool, which streams from a Firebase.</li><br>
+                                <!-- <li>Example realtime visualisation of a live dataset obtained via the tool, which streams from a Firebase.</li><br> -->
                             </p>
 
                             <div class="mt-auto">
@@ -217,37 +217,6 @@
                         </div>
                         <div class="card-footer">
                             <div class="subheading text-right">Java <img src="img/javaicon.svg" height="21"></img> &nbsp; JavaScript <img src="img/jsicon.svg" height="21"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="masonry-brick">
-                  <!-- PCS -->
-                  <div class="card mb-4 featured-img" style="max-width:29em">
-                      <img class="card-img-top" src="img/pcsimage.png" alt="Card image cap">
-                      <div class="card-body">
-                          <h3 class="card-title text-center"><strong>Product Compliance System</strong></h3>
-            
-                            <p class="card-text">
-                              <div class="text-center">Internal software for the company Red Kite Baby.<hr></div>
-                              <li>Manages safety tests performed on Red Kite Baby's products, and organises their certificates. </li>
-                              <li>Built in VB.NET, with a central Microsoft Access database interfaced with via SQL.</li>
-                              <li>Has a scheduler built in Java, which sends daily email alerts when certificates are about to expire via the Quartz Scheduler Library.</li>
-                            </p>
-  
-                            <div class="mt-auto">
-                              <!-- <div class="alert alert-warning" role="alert">
-                                Since the main VB.NET application was commisioned software, its code may not be shared.
-                              </div> -->
-                              <hr>
-                            
-                              <div class="col text-center">
-                                <a href="https://github.com/omarathon/email-scheduler" target="_blank"><button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View Email Scheduler Code">View Scheduler Code</View></button></a>
-                              </div>
-                          </div>
-                        </div>
-                        <div class="card-footer">
-                          <div class="subheading text-right">VB.NET <img src="img/vsicon.svg" height="21"></img> &nbsp; SQL <img src="img/sqlicon.svg" height="21"></img> &nbsp; Java <img src="img/javaicon.svg" height="21"></img></div>
                         </div>
                     </div>
                 </div>
@@ -286,10 +255,10 @@
                       <div class="card mb-4" style="max-width:29em">
                           <a href="https://www.dropbox.com/s/vxumf9bld9ly75h/DijkstraProgram.exe?dl=0" target="_blank"><img class="card-img-top" src="img/dijkstraimage.png" alt="Card image cap"></a>
                           <div class="card-body">
-                              <h3 class="card-title text-center"><strong>Dijkstra Application</strong></h3>
+                              <h3 class="card-title text-center"><strong>Dijkstra</strong></h3>
                 
                                 <p class="card-text">
-                                    <div class="text-center">C#.NET Windows Forms application that performs Dijkstra's Algorithm on an input network.<hr></div>
+                                    <div class="text-center">C#.NET app that performs Dijkstra's Algorithm on an input network.<hr></div>
                                     <li>Implementing an algorithm I learned in A-level Mathematics.</li>
                                     <li>Interface to input a network, and the ability to view its corresponding distance matrix.</li>
                                     <li>Computes and shows the shortest path with its weight, and a breakdown of the algorithm's working.</li>
