@@ -422,7 +422,7 @@ function doCheckScreenSize() {
 	if (!mainContent || !zoomMessage) {
 		return;
 	}
-	if (window.innerHeight < 860 || window.innerWidth < 485 ) {
+	if (window.innerHeight < 790 || window.innerWidth < 350 ) {
 	// Hide main content and show zoom message
 	mainContent.style.display = 'none';
 	zoomMessage.style.display = 'flex';
