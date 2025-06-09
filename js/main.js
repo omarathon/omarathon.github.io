@@ -432,3 +432,5 @@ function checkScreenSize() {
 
 window.addEventListener('load', checkScreenSize);
 window.addEventListener('resize', checkScreenSize);
+window.addEventListener('DOMContentLoaded', checkScreenSize);
+window.addEventListener('orientationchange', checkScreenSize);
