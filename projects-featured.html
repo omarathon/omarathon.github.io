@@ -66,9 +66,9 @@
           <div class="col-md-6 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
             <p class="mb-3 breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Projects</span> <span>Personal</span></p>
             <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Featured Projects</h1>
-            <div class="row justify-content-center">
-              <body>recent-ish, significant projects
-            </div>
+            <!-- <div class="row justify-content-center"> -->
+              <!-- <body>recent-ish, significant projects -->
+            <!-- </div> -->
             <div class="row justify-content-center mt-2">
               <strong><strong>[contact me for code or reports where not provided]</strong></strong>
               </body><br /><br />
@@ -110,6 +110,7 @@
                           <li>Achieved up to 78% speedups by fusing decompression and aggregation stages of computations.</li>
                           <li>Utilised SLURM for managing HPC resources, enabling 8000 hours of benchmarks.</li>
                           <li>Applied multi-objective Pareto optimisation to narrow the search-space of codec combinations for optimal space-vs-time tradeoffs.</li>
+                          <li>Awarded 78% (Distinction) for the thesis.</li>
                         </p>
 
                         <div class="mt-auto">
@@ -125,6 +126,37 @@
                     </div>
                 </div>
             </div>
+
+            <div class="masonry-brick-medium">
+  <!-- Thesis -->
+  <div class="card mb-4" style="max-width:38em">
+    <img class="card-img-top" src="img/multi-agent-car-parking.gif" alt="Multi-Agent Car Parking Thesis">
+    <div class="card-body">
+      <h3 class="card-title text-center"><strong>Multi-Agent Car Parking</strong></h3>
+      <p class="card-text">
+        <div class="text-center">Undergraduate thesis applying reinforcement learning to simulate and control groups of autonomous vehicles using PPO and Unity ML-Agents.<hr></div>
+        <li>Implemented variants of Q-Learning and modifications to PPO using Tensorflow/Python.</li>
+        <li>Designed a flexible environment modelled as an MDP with independent agents and dynamic goals. Implemented in Unity using C#.</li>
+        <li>Achieved over 98% parking success with 7 cars using PPO, outperforming single-agent baselines.</li>
+        <li>Explored collaborative and competitive behaviours with variable communication and density.</li>
+        <li>Revealed novel group dynamics such as 'leaky' collaboration and competition-induced cooperation.</li>
+        <li>Scaled training on the university's HPC using Slurm.</li>
+        <li>Awarded 85% for the thesis (top 2% / 250 in cohort).</li>
+        </p>
+        <div class="mt-auto">
+                          <hr>
+                          <div class="col text-center button-wrapper">
+                            <a href="https://github.com/omarathon/rl-multi-agent-car-parking" target="_blank"><button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View GitHub Repository">View Code</button></a>
+                            <a href="https://arxiv.org/abs/2206.13338" target="_blank"><button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Read on arXiv">Read on arXiv</button></a>
+                          </div>
+                      </div>
+      
+    </div>
+    <div class="card-footer">
+      <div class="subheading text-right">Python <img src="img/pythonicon.svg" height="21">&nbsp; C# <img src="img/csharpicon.svg" height="21">&nbsp; Unity <img src="img/unity-icon.png" height="21">&nbsp; Slurm <img src="img/slurmicon.svg" height="21"></div>
+    </div>
+  </div>
+</div>
 
 
             <div class="masonry-brick-medium">
@@ -145,7 +177,7 @@
                         <div class="mt-auto">
                           <hr>
                           <div class="col text-center button-wrapper">
-                            <a href="https://github.com/omarathon/arb-sim" target="_blank"><button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View Library Code">View Code</button></a>
+                            <a href="https://github.com/omarathon/arb-sim" target="_blank"><button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View GitHub Repository">View Code</button></a>
                           </div>
                       </div>
                     </div>
