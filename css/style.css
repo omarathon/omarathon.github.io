@@ -9165,6 +9165,11 @@ section.projects-block {
   height: 100%;
 }
 
+.noscroll-x {
+  overflow-x: hidden;
+  height: 100%;
+}
+
 .hero-wrap {
   overflow: hidden;
   position: relative;
