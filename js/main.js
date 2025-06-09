@@ -447,3 +447,17 @@ window.addEventListener('load', checkScreenSize);
 window.addEventListener('resize', checkScreenSize);
 window.addEventListener('DOMContentLoaded', checkScreenSize);
 window.addEventListener('orientationchange', checkScreenSize);
+
+let lastWidth = window.innerWidth;
+let lastHeight = window.innerHeight;
+
+setInterval(() => {
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+
+  if (width !== lastWidth || height !== lastHeight) {
+    lastWidth = width;
+    lastHeight = height;
+    checkScreenSize(); // Call your handler
+  }
+}, 100); // Check every 250ms (adjust as needed)
