@@ -419,6 +419,9 @@ img.addEventListener('mousedown', event => {
 function checkScreenSize() {
 	const mainContent = document.getElementById('main-content');
 	const zoomMessage = document.getElementById('zoom-message');
+	if (!mainContent || !zoomMessage) {
+		return;
+	}
 	if (window.innerHeight < 860 || window.innerWidth < 485 ) {
 	// Hide main content and show zoom message
 	mainContent.style.display = 'none';
