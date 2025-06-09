@@ -64,7 +64,7 @@
 	loader();
 
 	// Scrollax
-//    $.Scrollax();
+   $.Scrollax();
 
 	var carousel = function() {
 		$('.carousel-testimony').owlCarousel({
@@ -416,7 +416,7 @@ img.addEventListener('mousedown', event => {
 });
 });
 
-function checkScreenSize() {
+function doCheckScreenSize() {
 	const mainContent = document.getElementById('main-content');
 	const zoomMessage = document.getElementById('zoom-message');
 	if (!mainContent || !zoomMessage) {
@@ -432,6 +432,16 @@ function checkScreenSize() {
 	zoomMessage.style.display = 'none';
 	}
 }
+
+function debounce(func, delay) {
+  let timeoutId;
+  return function(...args) {
+    if (timeoutId) clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => func.apply(this, args), delay);
+  };
+}
+
+const checkScreenSize = debounce(doCheckScreenSize, 200);
 
 window.addEventListener('load', checkScreenSize);
 window.addEventListener('resize', checkScreenSize);
