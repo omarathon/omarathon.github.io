@@ -7493,7 +7493,8 @@ h1, h2, h3, h4, h5,
   left: 0;
   right: 0;
   bottom: 0;
-  color: #fff; }
+  color: #fff;
+  overflow-y: scroll }
   .slider-text h1 {
     font-size: 55px;
     color: #fff;
@@ -8080,7 +8081,7 @@ textarea.form-control {
         color: black !important;
         border: 2px solid #404044; }
 
-.ftco-animate {
+. {
   opacity: 0;
   visibility: hidden; }
 
