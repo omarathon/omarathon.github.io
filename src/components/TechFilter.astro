@@ -1,0 +1,146 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  projects: CollectionEntry<"projects">[];
+  targetId: string;
+};
+
+const { projects, targetId } = Astro.props;
+
+// Ordered by proficiency/frequency-of-use per Omar's CV (most-used first),
+// so the filter reflects real fluency rather than raw tag counts across
+// these projects (which would overweight generic scripting languages).
+const CV_TAG_PRIORITY = [
+  "C++",
+  "C",
+  "Python",
+  "Bash",
+  "C#",
+  "Rust",
+  "Java",
+  "TypeScript",
+  "Haskell",
+  "SQL",
+  "Docker",
+  "AVX256",
+  "Redis",
+  "OpenMP",
+  "Firebase",
+  "Spring",
+  "React",
+];
+
+const seen = new Set<string>();
+for (const p of projects) {
+  for (const tag of p.data.tags) seen.add(tag);
+}
+
+const sortedTags = [...seen].sort((a, b) => {
+  const rankA = CV_TAG_PRIORITY.indexOf(a);
+  const rankB = CV_TAG_PRIORITY.indexOf(b);
+  const orderA = rankA === -1 ? CV_TAG_PRIORITY.length : rankA;
+  const orderB = rankB === -1 ? CV_TAG_PRIORITY.length : rankB;
+  return orderA - orderB || a.localeCompare(b);
+});
+---
+
+{
+  sortedTags.length > 1 && (
+    <div
+      class="tech-filter border-border mb-8 rounded border p-4"
+      data-target={targetId}
+    >
+      <div class="flex items-center justify-between gap-2">
+        <span class="text-sm opacity-70">Filter by technology</span>
+        <input
+          type="text"
+          class="tech-filter-search border-border focus-outline w-32 rounded border bg-transparent px-2 py-1 text-sm sm:w-48"
+          placeholder="Search..."
+          aria-label="Search technologies"
+        />
+      </div>
+      <div class="tech-filter-pills mt-3 flex flex-wrap gap-2">
+        {sortedTags.map(tag => (
+          <button
+            type="button"
+            class="tech-filter-btn border-border hover:border-accent aria-pressed:bg-accent aria-pressed:text-accent-foreground aria-pressed:border-accent rounded border px-2 py-0.5 text-xs opacity-80 aria-pressed:opacity-100"
+            data-tag={tag}
+            aria-pressed="false"
+          >
+            {tag}
+          </button>
+        ))}
+      </div>
+      <button
+        type="button"
+        class="tech-filter-clear text-accent mt-3 hidden text-xs decoration-dashed underline-offset-4 hover:underline"
+      >
+        Clear selection
+      </button>
+    </div>
+  )
+}
+
+<script>
+  function setupTechFilters() {
+    document.querySelectorAll<HTMLElement>(".tech-filter").forEach(filterEl => {
+      const targetId = filterEl.dataset.target;
+      if (!targetId) return;
+      const list = document.getElementById(targetId);
+      if (!list) return;
+
+      const items = Array.from(list.querySelectorAll<HTMLElement>(":scope > li"));
+      const buttons = Array.from(
+        filterEl.querySelectorAll<HTMLButtonElement>(".tech-filter-btn")
+      );
+      const clearBtn =
+        filterEl.querySelector<HTMLButtonElement>(".tech-filter-clear");
+      const searchInput =
+        filterEl.querySelector<HTMLInputElement>(".tech-filter-search");
+      const selected = new Set<string>();
+
+      function applyProjectFilter() {
+        clearBtn?.classList.toggle("hidden", selected.size === 0);
+        items.forEach(item => {
+          const tags = (item.dataset.tags ?? "").split(",").filter(Boolean);
+          item.hidden = selected.size > 0 && !tags.some(t => selected.has(t));
+        });
+      }
+
+      function applySearch() {
+        const query = (searchInput?.value ?? "").trim().toLowerCase();
+        buttons.forEach(btn => {
+          const tag = (btn.dataset.tag ?? "").toLowerCase();
+          btn.hidden = query !== "" && !tag.includes(query);
+        });
+      }
+
+      buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const tag = btn.dataset.tag;
+          if (!tag) return;
+          if (selected.has(tag)) {
+            selected.delete(tag);
+            btn.setAttribute("aria-pressed", "false");
+          } else {
+            selected.add(tag);
+            btn.setAttribute("aria-pressed", "true");
+          }
+          applyProjectFilter();
+        });
+      });
+
+      clearBtn?.addEventListener("click", () => {
+        selected.clear();
+        buttons.forEach(b => b.setAttribute("aria-pressed", "false"));
+        applyProjectFilter();
+      });
+
+      searchInput?.addEventListener("input", applySearch);
+    });
+  }
+
+  setupTechFilters();
+  document.addEventListener("astro:after-swap", setupTechFilters);
+</script>

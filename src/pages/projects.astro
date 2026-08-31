@@ -1,0 +1,67 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+import Main from "@/components/Main.astro";
+import Footer from "@/components/Footer.astro";
+import LinkButton from "@/components/LinkButton.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import TechFilter from "@/components/TechFilter.astro";
+import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+import { PROJECT_CATEGORIES } from "@/content.config";
+import config from "@/config";
+
+const locale = Astro.currentLocale ?? config.site.lang;
+
+const allProjects = await getCollection("projects");
+
+const featured = allProjects
+  .filter(p => p.data.featured)
+  .sort(
+    (a: CollectionEntry<"projects">, b: CollectionEntry<"projects">) =>
+      a.data.featuredOrder - b.data.featuredOrder
+  );
+
+const categories = Object.entries(PROJECT_CATEGORIES) as [
+  keyof typeof PROJECT_CATEGORIES,
+  string,
+][];
+---
+
+<Layout
+  title={`Featured Projects | ${config.site.title}`}
+  description="A selection of things I've built."
+>
+  <Header />
+  <Breadcrumb />
+  <Main pageTitle="Featured Projects">
+    <section id="featured" class="pb-10">
+      <TechFilter projects={featured} targetId="featured-list" />
+      <ul id="featured-list" class="flex flex-col gap-8">
+        {featured.map(project => <ProjectCard project={project} variant="featured" />)}
+      </ul>
+    </section>
+
+    <section id="more" class="pb-6">
+      <h2 class="text-xl font-semibold tracking-wide">More</h2>
+      <ul class="mt-4 flex flex-col gap-2">
+        {
+          categories.map(([key, label]) => (
+            <li>
+              <LinkButton
+                href={getRelativeLocaleUrl(locale, `projects/${key}`)}
+                class="text-accent decoration-dashed underline-offset-4 hover:underline"
+              >
+                {label}
+                <IconArrowRight class="inline-block rtl:-rotate-180" />
+              </LinkButton>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </Main>
+  <Footer />
+</Layout>
