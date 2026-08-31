@@ -197,6 +197,24 @@ const isActive = (path: string) => {
 </header>
 
 <script>
+  function closeNav() {
+    const menuBtn = document.querySelector<HTMLButtonElement>("#menu-btn");
+    const menuItems = document.querySelector("#menu-items");
+    const menuIcon = document.querySelector("#menu-icon");
+    const closeIcon = document.querySelector("#close-icon");
+
+    if (!menuBtn || !menuItems || !menuIcon || !closeIcon) return;
+    if (menuBtn.getAttribute("aria-expanded") !== "true") return;
+
+    const openLabel = menuBtn.dataset.labelOpen ?? "Open menu";
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.setAttribute("aria-label", openLabel);
+    menuItems.classList.add("hidden");
+    menuItems.classList.remove("grid");
+    menuIcon.classList.remove("hidden");
+    closeIcon.classList.add("hidden");
+  }
+
   function toggleNav() {
     const menuBtn = document.querySelector<HTMLButtonElement>("#menu-btn");
     const menuItems = document.querySelector("#menu-items");
@@ -204,6 +222,12 @@ const isActive = (path: string) => {
     const closeIcon = document.querySelector("#close-icon");
 
     if (!menuBtn || !menuItems || !menuIcon || !closeIcon) return;
+    // The header persists across navigations (transition:persist), so this
+    // button is the same DOM node on every page load. Only wire it up once,
+    // otherwise repeated calls (e.g. via astro:after-swap) stack duplicate
+    // click listeners on it.
+    if (menuBtn.dataset.wired === "true") return;
+    menuBtn.dataset.wired = "true";
 
     const openLabel = menuBtn.dataset.labelOpen ?? "Open menu";
     const closeLabel = menuBtn.dataset.labelClose ?? "Close menu";
@@ -252,6 +276,7 @@ const isActive = (path: string) => {
 
   toggleNav();
   document.addEventListener("astro:after-swap", toggleNav);
+  document.addEventListener("astro:before-preparation", closeNav);
 
   handleSkipToContent();
   document.addEventListener("astro:after-swap", handleSkipToContent);
