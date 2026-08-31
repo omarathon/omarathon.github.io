@@ -8,8 +8,3 @@ I'm currently working at [InstaDeep](https://instadeep.com) as a Simulation Soft
 Previously, I did my postgraduate studies at the University of Cambridge ([Sensor CDT](https://cdt.sensors.cam.ac.uk)) and worked in the [defence industry](https://helsing.ai). Earlier still, I worked in the [gaming industry](https://improbable.io), following my undergraduate studies in Computer Science at Warwick.
 
 Besides technical things, I enjoy playing League of Legends, dialing in home espresso, and outdoor activities.
-
-- [Projects](/projects)
-- [GitHub](https://github.com/omarathon)
-- [LinkedIn](https://www.linkedin.com/in/omartanner/)
-- [Email](mailto:omar.tanner@outlook.com?subject=Portfolio%20Enquiry) (please, no automated outreach)

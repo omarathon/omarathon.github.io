@@ -29,7 +29,7 @@ export default defineAstroPaperConfig({
   socials: [
     { name: "github",   url: "https://github.com/omarathon" },
     { name: "linkedin", url: "https://www.linkedin.com/in/omartanner/" },
-    { name: "mail",     url: "mailto:omar.tanner@outlook.com?subject=Portfolio%20Enquiry" },
+    { name: "mail",     url: "mailto:omar.tanner@outlook.com?subject=Portfolio%20Enquiry%20-%20Remove%20me%20if%20you%27re%20not%20a%20bot" },
   ],
   shareLinks: [],
 });
