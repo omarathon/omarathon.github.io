@@ -3,42 +3,45 @@
 
 <div
   id="loading-cup"
-  class="bg-background pointer-events-none fixed inset-0 z-[60] flex items-center justify-center opacity-0"
+  class="bg-background fixed inset-0 z-[60] opacity-0"
   transition:persist
   transition:name="loading-cup"
+  hidden
 >
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    stroke-width="1.5"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    class="text-accent size-16"
-  >
-    <defs>
-      <clipPath id="cup-clip">
-        <path d="M4.5 7h11v7a4 4 0 0 1-4 4h-3a4 4 0 0 1-4-4V7z" />
-      </clipPath>
-    </defs>
+  <div class="flex size-full items-center justify-center">
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="text-accent size-16"
+    >
+      <defs>
+        <clipPath id="cup-clip">
+          <path d="M4.5 7h11v7a4 4 0 0 1-4 4h-3a4 4 0 0 1-4-4V7z" />
+        </clipPath>
+      </defs>
 
-    <rect
-      id="cup-liquid"
-      x="4.5"
-      y="7"
-      width="11"
-      height="11"
-      fill="currentColor"
-      stroke="none"
-      clip-path="url(#cup-clip)"
-      style="clip-path: url(#cup-clip); transform-origin: 10px 18px;"
-    />
+      <rect
+        id="cup-liquid"
+        x="4.5"
+        y="7"
+        width="11"
+        height="11"
+        fill="currentColor"
+        stroke="none"
+        clip-path="url(#cup-clip)"
+        style="clip-path: url(#cup-clip); transform-origin: 10px 18px;"
+      />
 
-    <path d="M4.5 7h11v7a4 4 0 0 1-4 4h-3a4 4 0 0 1-4-4V7z" />
-    <path d="M15.5 9.5h1.5a2 2 0 0 1 0 4h-1.5" />
-    <path d="M8 2.5c0 .8.8.8.8 1.6S8 5.7 8 6.5" />
-    <path d="M11.5 2.5c0 .8.8.8.8 1.6s-.8 1.6-.8 2.4" />
-  </svg>
+      <path d="M4.5 7h11v7a4 4 0 0 1-4 4h-3a4 4 0 0 1-4-4V7z" />
+      <path d="M15.5 9.5h1.5a2 2 0 0 1 0 4h-1.5" />
+      <path d="M8 2.5c0 .8.8.8.8 1.6S8 5.7 8 6.5" />
+      <path d="M11.5 2.5c0 .8.8.8.8 1.6s-.8 1.6-.8 2.4" />
+    </svg>
+  </div>
 </div>
 
 <script is:inline>
@@ -49,7 +52,7 @@
     if (window.__loadingCupInit) return;
     window.__loadingCupInit = true;
 
-    let hideTimer;
+    let fadeOutTimer;
 
     function els() {
       const wrap = document.getElementById("loading-cup");
@@ -64,33 +67,47 @@
       el.style.transform = `scaleY(${fraction})`;
     }
 
+    function onFadeOutEnd(event) {
+      if (event.target !== event.currentTarget || event.propertyName !== "opacity")
+        return;
+      const e = els();
+      if (e && e.wrap.style.opacity === "0") {
+        e.wrap.hidden = true;
+        e.liquid.style.transition = "none";
+        e.liquid.style.transform = "scaleY(0)";
+      }
+    }
+
     function start() {
       const e = els();
       if (!e) return;
-      clearTimeout(hideTimer);
+      clearTimeout(fadeOutTimer);
+      e.wrap.removeEventListener("transitionend", onFadeOutEnd);
+      e.wrap.hidden = false;
+      e.wrap.style.transition = "none";
+      e.wrap.style.opacity = "0";
+      // Force reflow so the opacity transition below actually animates.
+      void e.wrap.offsetWidth;
       e.wrap.style.transition = "opacity 120ms ease-out";
       e.wrap.style.opacity = "1";
-      e.wrap.style.pointerEvents = "auto";
       e.liquid.style.transition = "none";
       e.liquid.style.transform = "scaleY(0)";
-      // Force reflow so the next transform change actually animates.
       void e.liquid.offsetWidth;
       setFill(e.liquid, 0.8, 4000);
     }
 
     function finish() {
       const e = els();
-      if (!e) return;
+      if (!e || e.wrap.hidden) return;
       setFill(e.liquid, 1, 200);
-      clearTimeout(hideTimer);
-      hideTimer = setTimeout(() => {
+      clearTimeout(fadeOutTimer);
+      fadeOutTimer = setTimeout(() => {
+        e.wrap.addEventListener("transitionend", onFadeOutEnd);
         e.wrap.style.transition = "opacity 250ms ease-out";
         e.wrap.style.opacity = "0";
-        e.wrap.style.pointerEvents = "none";
-        hideTimer = setTimeout(() => {
-          e.liquid.style.transition = "none";
-          e.liquid.style.transform = "scaleY(0)";
-        }, 250);
+        // Fallback in case transitionend doesn't fire for some reason
+        // (e.g. the tab was backgrounded), so the overlay can't get stuck.
+        setTimeout(() => onFadeOutEnd({ target: e.wrap, currentTarget: e.wrap, propertyName: "opacity" }), 400);
       }, 200);
     }
 
