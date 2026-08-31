@@ -10,7 +10,11 @@ const { noMarginTop = false, class: className, ...attrs } = Astro.props;
 ---
 
 <footer
-  class:list={["app-layout", { "mt-auto": !noMarginTop }, className]}
+  class:list={[
+    "app-layout relative z-[70]",
+    { "mt-auto": !noMarginTop },
+    className,
+  ]}
   transition:persist
   transition:name="site-footer"
   {...attrs}

@@ -3,7 +3,7 @@
 
 <div
   id="loading-cup"
-  class="bg-background pointer-events-none fixed right-0 left-0 z-[60] flex items-center justify-center opacity-0"
+  class="bg-background pointer-events-none fixed inset-0 z-[60] flex items-center justify-center opacity-0"
   transition:persist
   transition:name="loading-cup"
 >
@@ -43,6 +43,12 @@
 
 <script is:inline>
   (function () {
+    // Guard against re-registering listeners: this script tag isn't
+    // transition:persist, so it re-executes on every soft navigation.
+    // Without this guard, listeners would stack up across navigations.
+    if (window.__loadingCupInit) return;
+    window.__loadingCupInit = true;
+
     let hideTimer;
 
     function els() {
@@ -62,14 +68,6 @@
       const e = els();
       if (!e) return;
       clearTimeout(hideTimer);
-      const header = document.querySelector("header");
-      const footer = document.querySelector("footer");
-      const headerBottom = header ? header.getBoundingClientRect().bottom : 0;
-      const footerTop = footer
-        ? footer.getBoundingClientRect().top
-        : window.innerHeight;
-      e.wrap.style.top = `${Math.max(headerBottom, 0)}px`;
-      e.wrap.style.bottom = `${Math.max(window.innerHeight - footerTop, 0)}px`;
       e.wrap.style.transition = "opacity 120ms ease-out";
       e.wrap.style.opacity = "1";
       e.wrap.style.pointerEvents = "auto";
