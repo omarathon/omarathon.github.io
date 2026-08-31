@@ -4,8 +4,7 @@ export default defineAstroPaperConfig({
   site: {
     url: "https://omarathon.github.io/",
     title: "Omar Tanner",
-    description:
-      "Omar Tanner's developer portfolio, spanning systems, HPC and applied ML projects.",
+    description: "Omar Tanner's personal website.",
     author: "Omar Tanner",
     profile: "https://www.linkedin.com/in/omartanner/",
     ogImage: "default-og.jpg",
@@ -20,7 +19,7 @@ export default defineAstroPaperConfig({
   },
   features: {
     lightAndDarkMode: true,
-    dynamicOgImage: true,
+    dynamicOgImage: false,
     showArchives: false,
     showBackButton: true,
     editPost: { enabled: false },
