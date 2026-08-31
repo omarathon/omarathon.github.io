@@ -36,7 +36,16 @@ function reflect(): void {
 
 function setup(): void {
   reflect();
-  document.querySelector("#theme-btn")?.addEventListener("click", () => {
+
+  // The header persists across View Transitions navigations (transition:persist),
+  // so #theme-btn is the same DOM node on every page. Only wire up the click
+  // listener once, otherwise repeated calls (via astro:after-swap) stack
+  // duplicate listeners that toggle the theme back and forth on a single click.
+  const btn = document.querySelector<HTMLButtonElement>("#theme-btn");
+  if (!btn || btn.dataset.wired === "true") return;
+  btn.dataset.wired = "true";
+
+  btn.addEventListener("click", () => {
     themeValue = themeValue === LIGHT ? DARK : LIGHT;
     persist();
   });
