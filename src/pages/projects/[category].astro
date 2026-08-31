@@ -2,7 +2,6 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
-import Breadcrumb from "@/components/Breadcrumb.astro";
 import Main from "@/components/Main.astro";
 import Footer from "@/components/Footer.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
@@ -40,7 +39,6 @@ const { label, projects } = Astro.props;
   description={`${label}, by Omar Tanner.`}
 >
   <Header />
-  <Breadcrumb />
   <Main pageTitle={label}>
     <TechFilter projects={projects} targetId="project-list" />
     <ul id="project-list" class="flex flex-col gap-8">

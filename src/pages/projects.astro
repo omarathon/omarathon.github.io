@@ -3,7 +3,6 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
-import Breadcrumb from "@/components/Breadcrumb.astro";
 import Main from "@/components/Main.astro";
 import Footer from "@/components/Footer.astro";
 import LinkButton from "@/components/LinkButton.astro";
@@ -35,7 +34,6 @@ const categories = Object.entries(PROJECT_CATEGORIES) as [
   description="A selection of things I've built."
 >
   <Header />
-  <Breadcrumb />
   <Main pageTitle="Featured Projects">
     <section id="featured" class="pb-10">
       <TechFilter projects={featured} targetId="featured-list" />
