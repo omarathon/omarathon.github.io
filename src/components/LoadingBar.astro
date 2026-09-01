@@ -8,7 +8,7 @@
   transition:name="loading-cup"
   hidden
 >
-  <div class="flex size-full items-center justify-center">
+  <div class="flex size-full flex-col items-center justify-center">
     <svg
       viewBox="0 0 24 24"
       fill="none"
@@ -41,6 +41,12 @@
       <path d="M8 2.5c0 .8.8.8.8 1.6S8 5.7 8 6.5" />
       <path d="M11.5 2.5c0 .8.8.8.8 1.6s-.8 1.6-.8 2.4" />
     </svg>
+    <p
+      id="loading-cup-message"
+      class="mt-3 text-sm opacity-0 transition-opacity duration-500"
+    >
+      Warming up a cold cache, hang tight...
+    </p>
   </div>
 </div>
 
@@ -53,11 +59,13 @@
     window.__loadingCupInit = true;
 
     let fadeOutTimer;
+    let messageTimer;
 
     function els() {
       const wrap = document.getElementById("loading-cup");
       const liquid = document.getElementById("cup-liquid");
-      return wrap && liquid ? { wrap, liquid } : null;
+      const message = document.getElementById("loading-cup-message");
+      return wrap && liquid && message ? { wrap, liquid, message } : null;
     }
 
     function setFill(el, fraction, durationMs) {
@@ -82,6 +90,7 @@
       const e = els();
       if (!e) return;
       clearTimeout(fadeOutTimer);
+      clearTimeout(messageTimer);
       e.wrap.removeEventListener("transitionend", onFadeOutEnd);
       e.wrap.hidden = false;
       e.wrap.style.transition = "none";
@@ -94,11 +103,19 @@
       e.liquid.style.transform = "scaleY(0)";
       void e.liquid.offsetWidth;
       setFill(e.liquid, 0.8, 4000);
+      e.message.style.opacity = "0";
+      // Only show the reassurance message if loading is taking a while;
+      // most navigations finish well before this and never see it.
+      messageTimer = setTimeout(() => {
+        e.message.style.opacity = "0.7";
+      }, 2000);
     }
 
     function finish() {
       const e = els();
       if (!e || e.wrap.hidden) return;
+      clearTimeout(messageTimer);
+      e.message.style.opacity = "0";
       setFill(e.liquid, 1, 200);
       clearTimeout(fadeOutTimer);
       fadeOutTimer = setTimeout(() => {

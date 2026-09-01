@@ -1,5 +1,6 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
+import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
 import IconUnderline from "@/assets/icons/IconUnderline.svg";
 import IconMenuDeep from "@/assets/icons/IconMenuDeep.svg";
 import IconArchive from "@/assets/icons/IconArchive.svg";
@@ -19,6 +20,12 @@ const projectCategories = Object.entries(PROJECT_CATEGORIES) as [
   keyof typeof PROJECT_CATEGORIES,
   string,
 ][];
+
+const shortCategoryLabels: Record<keyof typeof PROJECT_CATEGORIES, string> = {
+  personal: "Personal",
+  cambridge: "@ Cambridge",
+  warwick: "@ Warwick",
+};
 
 const locale = Astro.currentLocale ?? config.site.lang;
 const t = useTranslations(locale);
@@ -82,40 +89,86 @@ const isActive = (path: string) => {
         id="menu-items"
         class="[&>li>a]:hover:text-accent mt-4 hidden w-44 grid-cols-2 place-content-center gap-2 sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0 sm:[&>li]:h-8 [&>li>a]:block [&>li>a]:px-4 [&>li>a]:py-3 [&>li>a]:text-center [&>li>a]:font-medium sm:[&>li>a]:px-2 sm:[&>li>a]:py-1"
       >
-        <li class="group col-span-2 sm:relative">
-          <a
-            href={getRelativeLocaleUrl(locale, "projects")}
-            class:list={{ "active-nav": isActive("/projects") }}
+        <li class="col-span-2 sm:relative">
+          <button
+            id="projects-dropdown-btn"
+            type="button"
+            class:list={[
+              "hover:text-accent block w-full px-4 py-3 text-center font-medium sm:inline-flex sm:w-auto sm:items-center sm:gap-1 sm:px-2 sm:py-1",
+              { "active-nav": isActive("/projects") },
+            ]}
+            aria-expanded="false"
+            aria-controls="projects-dropdown"
           >
             {t.nav.projects}
-          </a>
+            <IconChevronLeft class="hidden size-4 -rotate-90 transition-transform sm:inline-block" />
+          </button>
+
+          {/* Mobile: always-visible pills, no hover needed. */}
+          <div class="mt-2 flex flex-wrap justify-center gap-2 sm:hidden">
+            <a
+              href={getRelativeLocaleUrl(locale, "projects")}
+              class:list={[
+                "border-border rounded-full border px-3 py-1 text-sm font-medium opacity-80 hover:opacity-100",
+                {
+                  "border-accent text-accent opacity-100":
+                    isActive("/projects") && currentPath === "/projects",
+                },
+              ]}
+            >
+              Featured
+            </a>
+            {
+              projectCategories.map(([key]) => (
+                <a
+                  href={getRelativeLocaleUrl(locale, `projects/${key}`)}
+                  class:list={[
+                    "border-border rounded-full border px-3 py-1 text-sm opacity-80 hover:opacity-100",
+                    {
+                      "border-accent text-accent opacity-100": isActive(
+                        `/projects/${key}`
+                      ),
+                    },
+                  ]}
+                >
+                  {shortCategoryLabels[key]}
+                </a>
+              ))
+            }
+          </div>
+
+          {/* Desktop: click-to-toggle dropdown (not hover, so it works on touchscreens too). */}
           <ul
-            class="mt-1 flex w-max flex-col gap-1 ps-4 text-sm sm:absolute sm:top-full sm:left-0 sm:z-20 sm:mt-0 sm:hidden sm:flex-col sm:gap-0 sm:ps-0 sm:group-hover:flex sm:group-focus-within:flex"
+            id="projects-dropdown"
+            class="hidden sm:absolute sm:top-full sm:left-0 sm:z-20 sm:min-w-max sm:flex-col sm:gap-0"
           >
             <li>
               <a
                 href={getRelativeLocaleUrl(locale, "projects")}
                 class:list={[
-                  "block whitespace-nowrap opacity-80 hover:opacity-100",
+                  "block text-sm font-medium whitespace-nowrap opacity-80 hover:opacity-100",
                   "sm:bg-background sm:border-border sm:border-x sm:border-t sm:px-3 sm:py-2",
-                  { "active-nav": isActive("/projects") && currentPath === "/projects" },
+                  {
+                    "active-nav":
+                      isActive("/projects") && currentPath === "/projects",
+                  },
                 ]}
               >
                 Featured
               </a>
             </li>
             {
-              projectCategories.map(([key, label]) => (
+              projectCategories.map(([key]) => (
                 <li>
                   <a
                     href={getRelativeLocaleUrl(locale, `projects/${key}`)}
                     class:list={[
-                      "block whitespace-nowrap opacity-80 hover:opacity-100",
+                      "block text-sm whitespace-nowrap opacity-80 hover:opacity-100",
                       "sm:bg-background sm:border-border sm:border-x sm:border-t sm:px-3 sm:py-2 sm:last:border-b",
                       { "active-nav": isActive(`/projects/${key}`) },
                     ]}
                   >
-                    {label}
+                    {shortCategoryLabels[key]}
                   </a>
                 </li>
               ))
@@ -280,4 +333,63 @@ const isActive = (path: string) => {
 
   handleSkipToContent();
   document.addEventListener("astro:after-swap", handleSkipToContent);
+
+  function closeProjectsDropdown() {
+    const btn = document.querySelector<HTMLButtonElement>(
+      "#projects-dropdown-btn"
+    );
+    const dropdown = document.querySelector("#projects-dropdown");
+    const icon = btn?.querySelector("svg");
+    if (!btn || !dropdown) return;
+
+    btn.setAttribute("aria-expanded", "false");
+    dropdown.classList.add("hidden");
+    dropdown.classList.remove("sm:flex");
+    icon?.classList.remove("rotate-90");
+  }
+
+  function setupProjectsDropdown() {
+    const btn = document.querySelector<HTMLButtonElement>(
+      "#projects-dropdown-btn"
+    );
+    const dropdown = document.querySelector("#projects-dropdown");
+    if (!btn || !dropdown) return;
+    // The header persists across navigations, so this button is the same
+    // DOM node on every page load. Only wire it up once.
+    if (btn.dataset.wired === "true") return;
+    btn.dataset.wired = "true";
+
+    const isDesktop = () => window.matchMedia("(min-width: 40rem)").matches;
+
+    btn.addEventListener("click", event => {
+      // On mobile the pills below are already always visible; this button
+      // is only a dropdown toggle at the desktop breakpoint.
+      if (!isDesktop()) return;
+      event.stopPropagation();
+      const icon = btn.querySelector("svg");
+      const open = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", open ? "false" : "true");
+      dropdown.classList.toggle("hidden", open);
+      dropdown.classList.toggle("sm:flex", !open);
+      icon?.classList.toggle("rotate-90", !open);
+    });
+
+    document.addEventListener("click", event => {
+      if (
+        btn.getAttribute("aria-expanded") === "true" &&
+        !dropdown.contains(event.target as Node) &&
+        !btn.contains(event.target as Node)
+      ) {
+        closeProjectsDropdown();
+      }
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeProjectsDropdown();
+    });
+  }
+
+  setupProjectsDropdown();
+  document.addEventListener("astro:after-swap", setupProjectsDropdown);
+  document.addEventListener("astro:before-preparation", closeProjectsDropdown);
 </script>
