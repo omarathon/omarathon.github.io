@@ -7,7 +7,7 @@ order: 4
 tags: ["Java", "SQL"]
 bullets:
   - "Syncs a Minecraft player's server data to a subreddit."
-  - "Implemented a secure authentication system, realtime data management, and an abstraction layer for multiple database technologies."
+  - "Implemented an authentication system, realtime data management, and an abstraction layer for multiple database technologies."
 links:
   - label: "View Code"
     url: "https://github.com/omarathon/redditcraft"

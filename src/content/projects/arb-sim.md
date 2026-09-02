@@ -12,7 +12,7 @@ bullets:
   - "Distributed Python/FastAPI backend using Redis for inter-service communication."
   - "Real-time TypeScript/React frontend streaming from a webhook."
   - "Dockerised backend."
-  - "Extensively tested with 43 high-signal unit tests (28 backend, 15 frontend)."
+  - "Tested with 43 unit tests (28 backend, 15 frontend)."
 links:
   - label: "View Code"
     url: "https://github.com/omarathon/arb-sim"

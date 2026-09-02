@@ -1,6 +1,6 @@
 ---
 title: "Riot API Crawler"
-description: "Flexible League of Legends match crawler, useful for gathering large datasets of League of Legends matches in an intelligent and efficient manner."
+description: "Flexible League of Legends match crawler for gathering large datasets of League of Legends matches."
 category: "personal"
 image: "/images/projects/riot-api-crawler.png"
 order: 5
