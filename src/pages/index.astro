@@ -55,7 +55,7 @@ const { Content: AboutContent } = await render(about);
         <img
           src={getAssetPath("/images/profile.webp")}
           alt="Omar Tanner"
-          class="not-prose float-left me-3 size-24 rounded-full object-cover grayscale transition-[filter] duration-500 hover:grayscale-0"
+          class="not-prose float-left me-3 size-20 rounded-full object-cover grayscale transition-[filter] duration-500 hover:grayscale-0 sm:size-24"
         />
         <AboutContent />
       </div>
@@ -140,15 +140,17 @@ const { Content: AboutContent } = await render(about);
     cursor: pointer;
   }
 
-  .hover-preview:hover {
-    color: var(--color-accent);
+  @media (hover: hover) {
+    .hover-preview:hover {
+      color: var(--color-accent);
+    }
   }
 
   .hover-preview-float {
     position: fixed;
     z-index: 50;
-    width: 220px;
-    max-height: 220px;
+    width: 160px;
+    height: 160px;
     object-fit: cover;
     border-radius: 0.5rem;
     border: 1px solid var(--color-border);
@@ -156,18 +158,34 @@ const { Content: AboutContent } = await render(about);
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.15s ease;
-    transform: translateY(-100%);
   }
 
-  .hover-preview-inline {
-    display: block;
+  .hover-preview-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 1rem;
+    background: rgb(0 0 0 / 60%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+  }
+
+  .hover-preview-overlay.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .hover-preview-overlay img {
     width: 100%;
-    max-width: 20rem;
-    max-height: 14rem;
+    max-width: 24rem;
+    max-height: 70vh;
     object-fit: cover;
     border-radius: 0.5rem;
     border: 1px solid var(--color-border);
-    margin-block: 0.5rem;
   }
 </style>
 
@@ -178,6 +196,10 @@ const { Content: AboutContent } = await render(about);
       document.querySelectorAll<HTMLElement>(".hover-preview");
 
     if (canHover) {
+      const size = 160;
+      const gap = 16;
+      const margin = 8;
+
       const float = document.createElement("img");
       float.className = "hover-preview-float";
       document.body.appendChild(float);
@@ -188,23 +210,57 @@ const { Content: AboutContent } = await render(about);
           float.style.opacity = "1";
         });
         el.addEventListener("mousemove", e => {
-          float.style.left = `${e.clientX + 16}px`;
-          float.style.top = `${e.clientY - 16}px`;
+          let left = e.clientX + gap;
+          if (left + size + margin > window.innerWidth) {
+            left = e.clientX - gap - size;
+          }
+          left = Math.max(
+            margin,
+            Math.min(left, window.innerWidth - size - margin)
+          );
+
+          let top = e.clientY - gap - size;
+          if (top < margin) {
+            top = e.clientY + gap;
+          }
+          top = Math.max(
+            margin,
+            Math.min(top, window.innerHeight - size - margin)
+          );
+
+          float.style.left = `${left}px`;
+          float.style.top = `${top}px`;
         });
         el.addEventListener("mouseleave", () => {
           float.style.opacity = "0";
         });
       });
     } else {
-      previews.forEach(el => {
-        const img = document.createElement("img");
-        img.className = "hover-preview-inline hidden";
-        img.src = el.dataset.img ?? "";
-        img.alt = "";
-        el.insertAdjacentElement("afterend", img);
+      const overlay = document.createElement("div");
+      overlay.className = "hover-preview-overlay";
+      const overlayImg = document.createElement("img");
+      overlayImg.alt = "";
+      overlay.appendChild(overlayImg);
+      document.body.appendChild(overlay);
 
-        el.addEventListener("click", () => {
-          img.classList.toggle("hidden");
+      let activeEl: HTMLElement | null = null;
+
+      overlay.addEventListener("click", () => {
+        overlay.classList.remove("is-visible");
+        activeEl = null;
+      });
+
+      previews.forEach(el => {
+        el.addEventListener("click", e => {
+          e.stopPropagation();
+          if (activeEl === el) {
+            overlay.classList.remove("is-visible");
+            activeEl = null;
+          } else {
+            overlayImg.src = el.dataset.img ?? "";
+            overlay.classList.add("is-visible");
+            activeEl = el;
+          }
         });
       });
     }
