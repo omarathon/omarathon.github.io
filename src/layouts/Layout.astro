@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import { Font } from "astro:assets";
 import { getAssetPath } from "@/utils/withBase";
 import LoadingBar from "@/components/LoadingBar.astro";
 import config from "@/config";
@@ -71,6 +72,9 @@ const rssHref = getRelativeLocaleUrl(
 
     <!-- Filled at runtime by theme.ts to match the current background colour -->
     <meta name="theme-color" content="" />
+
+    <Font cssVariable="--font-prose" preload />
+    <Font cssVariable="--font-heading" preload />
 
     <!-- Extra head content injected by child layouts (e.g. JSON-LD, article meta) -->
     <slot name="head" />

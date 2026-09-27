@@ -1,6 +1,6 @@
 ---
 title: "Embedded Real-Time Activity Recognition"
-description: "Designed and implemented a real-time activity classifier in C on a lightweight micro-controller, using an algorithm with just 83 bytes of RAM to distinguish gait-related activities from IMU data."
+description: "Real-time gait-activity classifier in C for a lightweight micro-controller, distinguishing activities from IMU data under tight memory constraints."
 category: "cambridge"
 image: "/images/projects/embsys.png"
 order: 2

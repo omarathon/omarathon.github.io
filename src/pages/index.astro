@@ -51,11 +51,11 @@ const { Content: AboutContent } = await render(about);
         Omar's corner
       </h1>
 
-      <div class="app-prose border-border mt-4 max-w-none border-t pt-4">
+      <div class="app-prose max-w-none">
         <img
-          src={getAssetPath("/images/profile.jpg")}
+          src={getAssetPath("/images/profile.webp")}
           alt="Omar Tanner"
-          class="not-prose float-left me-3 size-28 rounded-full object-cover"
+          class="not-prose float-left me-3 size-24 rounded-full object-cover grayscale transition-[filter] duration-500 hover:grayscale-0"
         />
         <AboutContent />
       </div>
@@ -130,4 +130,85 @@ const { Content: AboutContent } = await render(about);
       sessionStorage.setItem("backUrl", indexLayout.homePath ?? baseRoot);
     }
   });
+</script>
+
+<style is:global>
+  .hover-preview {
+    color: var(--color-foreground);
+    text-decoration: underline dashed;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+
+  .hover-preview:hover {
+    color: var(--color-accent);
+  }
+
+  .hover-preview-float {
+    position: fixed;
+    z-index: 50;
+    width: 220px;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 25%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+    transform: translateY(-100%);
+  }
+
+  .hover-preview-inline {
+    display: block;
+    width: 100%;
+    max-width: 20rem;
+    max-height: 14rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-border);
+    margin-block: 0.5rem;
+  }
+</style>
+
+<script>
+  function setupHoverPreviews() {
+    const canHover = window.matchMedia("(hover: hover)").matches;
+    const previews =
+      document.querySelectorAll<HTMLElement>(".hover-preview");
+
+    if (canHover) {
+      const float = document.createElement("img");
+      float.className = "hover-preview-float";
+      document.body.appendChild(float);
+
+      previews.forEach(el => {
+        el.addEventListener("mouseenter", () => {
+          float.src = el.dataset.img ?? "";
+          float.style.opacity = "1";
+        });
+        el.addEventListener("mousemove", e => {
+          float.style.left = `${e.clientX + 16}px`;
+          float.style.top = `${e.clientY - 16}px`;
+        });
+        el.addEventListener("mouseleave", () => {
+          float.style.opacity = "0";
+        });
+      });
+    } else {
+      previews.forEach(el => {
+        const img = document.createElement("img");
+        img.className = "hover-preview-inline hidden";
+        img.src = el.dataset.img ?? "";
+        img.alt = "";
+        el.insertAdjacentElement("afterend", img);
+
+        el.addEventListener("click", () => {
+          img.classList.toggle("hidden");
+        });
+      });
+    }
+  }
+
+  document.addEventListener("astro:page-load", setupHoverPreviews);
 </script>

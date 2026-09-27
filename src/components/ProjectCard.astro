@@ -6,13 +6,11 @@ import { getAssetPath } from "@/utils/withBase";
 
 type Props = {
   project: CollectionEntry<"projects">;
-  variant?: "featured" | "compact";
 };
 
-const { project, variant = "compact" } = Astro.props;
+const { project } = Astro.props;
 const { title, description, bullets, tags, links, image, active } =
   project.data;
-const isFeatured = variant === "featured";
 ---
 
 <li
@@ -27,11 +25,11 @@ const isFeatured = variant === "featured";
         alt={title}
         loading="lazy"
         decoding="async"
-        class="mb-3 max-h-72 w-full rounded object-cover"
+        class="mb-3 w-full rounded"
       />
     )
   }
-  <h3 class:list={[isFeatured ? "text-accent text-lg" : "", "font-medium"]}>
+  <h3 class="text-accent text-lg font-medium">
     {title}
     {
       active && (
@@ -42,12 +40,12 @@ const isFeatured = variant === "featured";
       )
     }
   </h3>
-  <p class:list={["mt-1", isFeatured ? "" : "text-sm opacity-90"]}>
+  <p class="mt-1">
     {description}
   </p>
   {
     bullets && (
-      <ul class="[&_a]:text-accent mt-2 list-disc space-y-1 ps-5 text-sm opacity-90 [&_a]:underline [&_a]:decoration-dashed [&_a]:underline-offset-4 [&_a]:hover:no-underline">
+      <ul class="[&_a]:text-accent font-prose mt-2 list-disc space-y-1 ps-5 [&_a]:underline [&_a]:decoration-dashed [&_a]:underline-offset-4 [&_a]:hover:no-underline">
         {bullets.map(bullet => (
           <li set:html={bullet} />
         ))}
@@ -74,9 +72,7 @@ const isFeatured = variant === "featured";
             class="border-border text-accent hover:border-accent rounded border px-2 py-1"
           >
             {link.label}
-            {isFeatured && (
-              <IconArrowRight class="inline-block size-4 rtl:-rotate-180" />
-            )}
+            <IconArrowRight class="inline-block size-4 rtl:-rotate-180" />
           </LinkButton>
         ))}
       </div>

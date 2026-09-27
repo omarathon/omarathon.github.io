@@ -1,6 +1,6 @@
 ---
 title: "ModulePal"
-description: "Web app enabling Warwick students to review academic modules, integrating with university systems to ensure legitimacy and harnessing student data for confidential grade-based analytics."
+description: "Web app for Warwick students to review academic modules, integrating with university systems for verified reviews and confidential grade-based analytics."
 category: "personal"
 image: "/images/projects/modulepal.png"
 featured: true

@@ -1,6 +1,6 @@
 ---
 title: "Derivative Trade Manager"
-description: "Software Engineering group project sponsored by Deutsche Bank, involving the design and implementation of a full-stack application to manage derivative trades."
+description: "Full-stack derivative trade management application, built as a Deutsche Bank-sponsored Software Engineering group project."
 category: "warwick"
 image: "/images/projects/derivative-trade-manager.jpg"
 order: 9

@@ -38,7 +38,7 @@ const categories = Object.entries(PROJECT_CATEGORIES) as [
     <section id="featured" class="pb-10">
       <TechFilter projects={featured} targetId="featured-list" />
       <ul id="featured-list" class="flex flex-col gap-8">
-        {featured.map(project => <ProjectCard project={project} variant="featured" />)}
+        {featured.map(project => <ProjectCard project={project} />)}
       </ul>
     </section>
 

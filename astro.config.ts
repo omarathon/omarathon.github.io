@@ -1,4 +1,9 @@
-import { defineConfig, envField, svgoOptimizer } from "astro/config";
+import {
+  defineConfig,
+  envField,
+  svgoOptimizer,
+  fontProviders,
+} from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
@@ -17,6 +22,22 @@ import config from "./astro-paper.config";
 
 export default defineConfig({
   site: config.site.url,
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "load",
+  },
+  fonts: [
+    {
+      provider: fontProviders.google(),
+      name: "Source Serif 4",
+      cssVariable: "--font-prose",
+    },
+    {
+      provider: fontProviders.google(),
+      name: "IBM Plex Mono",
+      cssVariable: "--font-heading",
+    },
+  ],
   integrations: [
     mdx(),
     sitemap({

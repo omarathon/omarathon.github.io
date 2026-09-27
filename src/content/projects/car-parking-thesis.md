@@ -1,6 +1,6 @@
 ---
 title: "Multi-Agent Car Parking using Reinforcement Learning"
-description: "Undergraduate thesis applying reinforcement learning to simulate and control groups of autonomous vehicles using PPO and Unity ML-Agents."
+description: "Undergraduate thesis on multi-agent reinforcement learning for autonomous vehicle parking, using PPO and Unity ML-Agents."
 category: "warwick"
 image: "/images/projects/car-parking-thesis.gif"
 featured: true
