@@ -2,7 +2,7 @@
 title: "Arbitrage Simulation"
 description: "Event-driven full-stack simulation of an arbitrage bot for betting."
 category: "personal"
-image: "/images/projects/arb-sim.gif"
+image: "/images/projects/arb-sim.webp"
 featured: true
 featuredOrder: 3
 order: 1

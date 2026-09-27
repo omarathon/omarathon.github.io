@@ -2,7 +2,7 @@
 title: "Embedded Real-Time Activity Recognition"
 description: "Real-time gait-activity classifier in C for a lightweight micro-controller, distinguishing activities from IMU data under tight memory constraints."
 category: "cambridge"
-image: "/images/projects/embsys.png"
+image: "/images/projects/embsys.webp"
 order: 2
 tags: ["C"]
 bullets:

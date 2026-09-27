@@ -2,7 +2,7 @@
 title: "Pong"
 description: "Implemented the classic 'Pong' game on the screen of an oscilloscope via an ARM controller."
 category: "warwick"
-image: "/images/projects/pong.jpg"
+image: "/images/projects/pong.webp"
 order: 8
 tags: ["C", "ARM"]
 bullets:

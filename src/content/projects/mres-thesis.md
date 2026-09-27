@@ -2,7 +2,7 @@
 title: "Compressive Streaming for Geospatial Pipelines"
 description: "MRes thesis on beating main-memory bandwidths for geospatial computation via cache-optimised in-memory data compression, implemented in C++ with AVX256."
 category: "cambridge"
-image: "/images/projects/mres-thesis.png"
+image: "/images/projects/mres-thesis.webp"
 featured: true
 featuredOrder: 1
 active: true

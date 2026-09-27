@@ -2,7 +2,7 @@
 title: "Temperature and Pulse Sensors"
 description: "Designed and calibrated a temperature and pulse sensor, with Arduino electronics, real-time signal processing in C, and data analysis in Python."
 category: "cambridge"
-image: "/images/projects/sensor-design.png"
+image: "/images/projects/sensor-design.webp"
 order: 3
 tags: ["C", "Arduino", "Python"]
 bullets:
