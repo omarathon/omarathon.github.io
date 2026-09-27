@@ -2,7 +2,7 @@
 title: "Gaussian Mixture Model Clustering with EM Algorithm"
 description: "Implemented clustering on the Iris dataset using Gaussian Mixture Models and the EM algorithm, improving accuracy over K-Means."
 category: "warwick"
-image: "/images/projects/gmm-clustering.png"
+image: "/images/projects/gmm-clustering.webp"
 order: 4
 tags: ["Python"]
 bullets:

@@ -2,7 +2,7 @@
 title: "Bayesian Optimisation for PPO"
 description: "Led a group project applying Bayesian Optimisation to automatically tune PPO's hyperparameters, implemented in Python."
 category: "cambridge"
-image: "/images/projects/bayesian-ppo.png"
+image: "/images/projects/bayesian-ppo.webp"
 order: 4
 tags: ["Python"]
 bullets:

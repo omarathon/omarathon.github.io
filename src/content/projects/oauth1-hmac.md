@@ -2,7 +2,7 @@
 title: "OAuth1-HMAC"
 description: "Lightweight library implementing the OAuth1.0 protocol as a consumer."
 category: "personal"
-image: "/images/projects/oauth1-hmac.png"
+image: "/images/projects/oauth1-hmac.webp"
 order: 3
 tags: ["Java"]
 bullets:

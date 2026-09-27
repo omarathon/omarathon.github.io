@@ -2,7 +2,7 @@
 title: "TurtleBot Planning, Localisation and Control"
 description: "Implemented motion planning, control, sensing, and localisation using ROS and Turtlebot3 in the Gazebo simulator."
 category: "warwick"
-image: "/images/projects/turtlebot.png"
+image: "/images/projects/turtlebot.webp"
 order: 7
 tags: ["Python", "ROS"]
 bullets:

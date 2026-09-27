@@ -2,7 +2,7 @@
 title: "MiniC Compiler"
 description: "Implemented a compiler frontend for a simple C-like language using modern C++17 and LLVM."
 category: "warwick"
-image: "/images/projects/compiler.png"
+image: "/images/projects/compiler.webp"
 order: 2
 tags: ["C++", "LLVM"]
 bullets:
