@@ -53,9 +53,10 @@ const { Content: AboutContent } = await render(about);
 
       <div class="app-prose max-w-none">
         <img
+          id="profile-photo"
           src={getAssetPath("/images/profile.webp")}
           alt="Omar Tanner"
-          class="not-prose float-left me-3 size-20 rounded-full object-cover grayscale transition-[filter] duration-500 hover:grayscale-0 sm:size-24"
+          class="not-prose float-left me-3 size-20 cursor-pointer rounded-full object-cover grayscale transition-[filter] duration-500 sm:size-24"
         />
         <AboutContent />
       </div>
@@ -144,6 +145,14 @@ const { Content: AboutContent } = await render(about);
     .hover-preview:hover {
       color: var(--color-accent);
     }
+
+    #profile-photo:hover {
+      filter: grayscale(0);
+    }
+  }
+
+  #profile-photo.is-saturated {
+    filter: grayscale(0);
   }
 
   .hover-preview-float {
@@ -194,6 +203,14 @@ const { Content: AboutContent } = await render(about);
     const canHover = window.matchMedia("(hover: hover)").matches;
     const previews =
       document.querySelectorAll<HTMLElement>(".hover-preview");
+
+    if (!canHover) {
+      document
+        .querySelector<HTMLElement>("#profile-photo")
+        ?.addEventListener("click", e => {
+          (e.currentTarget as HTMLElement).classList.toggle("is-saturated");
+        });
+    }
 
     if (canHover) {
       const size = 160;
