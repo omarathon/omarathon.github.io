@@ -136,7 +136,8 @@ const { Content: AboutContent } = await render(about);
 <style is:global>
   .hover-preview {
     color: var(--color-foreground);
-    text-decoration: underline dashed;
+    text-decoration-line: underline;
+    text-decoration-style: dashed;
     text-underline-offset: 3px;
   }
 
@@ -198,6 +199,15 @@ const { Content: AboutContent } = await render(about);
 </style>
 
 <script>
+  function warmHoverPreviewImages() {
+    const previews =
+      document.querySelectorAll<HTMLElement>(".hover-preview");
+    previews.forEach(el => {
+      const src = el.dataset.img;
+      if (src) new Image().src = src;
+    });
+  }
+
   function setupHoverPreviews() {
     const canHover = window.matchMedia("(hover: hover)").matches;
     const previews =
@@ -282,5 +292,12 @@ const { Content: AboutContent } = await render(about);
     }
   }
 
-  document.addEventListener("astro:page-load", setupHoverPreviews);
+  document.addEventListener("astro:page-load", () => {
+    setupHoverPreviews();
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(warmHoverPreviewImages);
+    } else {
+      setTimeout(warmHoverPreviewImages, 200);
+    }
+  });
 </script>
